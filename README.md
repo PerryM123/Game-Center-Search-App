@@ -20,6 +20,9 @@ npm start
 * Google Maps React
 * Styled Components
 
+## Early App UI/UX Flowchart
+![alt text](https://github.com/PerryM123/Game-Center-Search-App/blob/master/uiux-flowchat.jpg)
+
 ## Personal Milestones 
 
 ### Closer to reach:
@@ -34,3 +37,4 @@ npm start
 
 * Integrating Firebase/MangoDB
 * Lazy Loading Components and Images
+

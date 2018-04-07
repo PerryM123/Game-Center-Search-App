@@ -1,14 +1,13 @@
 import React, { Component } from 'react';
-import Main from './containers/Main'
 
-class App extends Component {
+class LiveMap extends Component {
   render() {
     return (
       <div>
-        <Main />
+        livemap
       </div>
     );
   }
 }
 
-export default App;
+export default LiveMap;

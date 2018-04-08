@@ -1,0 +1,22 @@
+{
+	"arcades": [
+		{
+			"name": "Mikado",
+			"latt": 123.212,
+			"long": 1313.113,
+			"arcade_img_full": "./images/mikado_full.jpg",
+			"arcade_img_thumbnail": "./images/mikado_thumbnail.jpg",
+			"available_games": [
+				{
+					"game_name": "Street Fighter 2 Super Turbo"
+				},
+				{
+					"game_name": "Guilty Gear Accent Core"
+				},
+				{
+					"game_name": "Mario Kart Arcade"
+				}
+			]
+		}
+	]
+}

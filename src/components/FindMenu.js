@@ -19,11 +19,12 @@ class App extends Component {
   render() {
     return (
       <div>
+        <h2>Find Game</h2>
         <div>
-          <Link to='/find-game'>Search for Arcade near me></Link>  
+          <Link to='/live-map'>Search for Arcade near me (Google Maps)</Link>  
         </div>
         <div>
-          <Link to='/live-map'>Search for Game</Link>
+          <Link to='/search-game'>Search for Game</Link>
         </div>
       </div>
     );

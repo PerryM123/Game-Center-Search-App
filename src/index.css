@@ -3,3 +3,14 @@ body {
   padding: 0;
   font-family: sans-serif;
 }
+
+.search-game img {
+	width: 100%;
+}
+
+.search-game li {
+	display: inline-block;
+	height: 300px;
+	width: 200px;
+	padding: 20px;
+}

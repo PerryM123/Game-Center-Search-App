@@ -1,0 +1,39 @@
+{
+	"games": [
+		{
+			"game_name": "Street Fighter 2 Super Turbo",
+			"game_img_full": "/images/gamecovers/sf2st_full.jpg",
+			"game_img_thumbnail": "/images/gamecovers/ssf2st_thumbnail.jpg"
+		},
+		{
+			"game_name": "Street Fighter 3: 3rd Strike",
+			"game_img_full": "/images/gamecovers/sf3-3s_full.jpg",
+			"game_img_thumbnail": "/images/gamecovers/sf3-3s_thumbnail.jpg"
+		},
+		{
+			"game_name": "Street Fighter 3: Second Impact",
+			"game_img_full": "/images/gamecovers/sf3-2i_full.jpg",
+			"game_img_thumbnail": "/images/gamecovers/sf3-2i_thumbnail.jpg"
+		},
+		{
+			"game_name": "Street Fighter 3: First Generation",
+			"game_img_full": "/images/gamecovers/sf3-1g_full.jpg",
+			"game_img_thumbnail": "/images/gamecovers/sf3-1g_thumbnail.jpg"
+		},
+		{
+			"game_name": "Guilty Gear XX: Accent Core",
+			"game_img_full": "/images/gamecovers/ggac_full.jpg",
+			"game_img_thumbnail": "/images/gamecovers/ggac_thumbnail.jpg"
+		},
+		{
+			"game_name": "Marvel Superheroes vs Street Fighters",
+			"game_img_full": "/images/gamecovers/mshvsf_full.jpg",
+			"game_img_thumbnail": "/images/gamecovers/ggac_thumbnail.jpg"
+		},
+		{
+			"game_name": "Marvel vs Capcom",
+			"game_img_full": "/images/gamecovers/mvc1_full.jpg",
+			"game_img_thumbnail": "/images/gamecovers/mvc1_thumbnail.jpg"
+		}
+	]
+}

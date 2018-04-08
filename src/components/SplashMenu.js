@@ -1,12 +1,14 @@
 import React, { Component } from 'react';
-import FindGame from './FindGame';
 import { Link } from 'react-router-dom';
 
 class SplashMenu extends Component {
   render() {
     return (
       <div>
-        <Link to='/find-game'>Go to next Screen</Link>
+        <h2>Welcome!</h2>
+        <p>text text text text text text 
+        text text text text </p>
+        <Link to='/find-menu'>Go to next Screen</Link>
       </div>
     );
   }

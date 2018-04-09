@@ -6,6 +6,7 @@ import LiveMap from './LiveMap';
 import SearchGame from './SearchGame';
 import AboutUs from './AboutUs';
 import ContactUs from './ContactUs';
+import ArcadeResults from './ArcadeResults';
 import PageNotFound from './PageNotFound';
 
 /*
@@ -23,12 +24,17 @@ class Main extends Component {
     return (
       <div>
         <Switch>
+        {/*
+          ReactJS Question:
+          '/search-game' works but '/search-game/' does not...
+        */}
           <Route exact path='/' component={SplashMenu}/>
           <Route path='/find-menu' component={FindMenu}/>
           <Route path='/live-map' component={LiveMap}/>
           <Route path='/search-game' component={SearchGame}/>
           <Route path='/about-us' component={AboutUs}/>
           <Route path='/contact-us' component={ContactUs}/>
+          <Route path='/well/:id' component={ArcadeResults} />
           <Route component={PageNotFound}/>
         </Switch>
       </div>

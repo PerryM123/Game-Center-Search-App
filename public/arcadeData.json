@@ -1,20 +1,77 @@
 {
 	"arcades": [
 		{
-			"name": "Mikado",
-			"latt": 123.212,
-			"long": 1313.113,
-			"arcade_img_full": "./images/mikado_full.jpg",
-			"arcade_img_thumbnail": "./images/mikado_thumbnail.jpg",
+			"arcade_name": "Mikado",
+			"latt": 111.111,
+			"long": 222.222,
+			"arcade_img_full": "/images/arcadecovers/mikado_full.png",
+			"arcade_img_thumbnail": "/images/arcadecovers/mikado_thumbnail.png",
 			"available_games": [
 				{
-					"game_name": "Street Fighter 2 Super Turbo"
+					"game_id": "sf2st"
 				},
 				{
-					"game_name": "Guilty Gear Accent Core"
+					"game_id": "ggax"
+				}
+			]
+		},
+		{
+			"arcade_name": "HEY! Arcade",
+			"latt": 333.333,
+			"long": 444.444,
+			"arcade_img_full": "/images/arcadecovers/mikado_full.png",
+			"arcade_img_thumbnail": "/images/arcadecovers/mikado_thumbnail.png",
+			"available_games": [
+				{
+					"game_id": "sf2st"
 				},
 				{
-					"game_name": "Mario Kart Arcade"
+					"game_id": "ggax"
+				}
+			]
+		},
+		{
+			"arcade_name": "Fun Fun Funland",
+			"latt": 555.555,
+			"long": 666.666,
+			"arcade_img_full": "/images/arcadecovers/mikado_full.png",
+			"arcade_img_thumbnail": "/images/arcadecovers/mikado_thumbnail.png",
+			"available_games": [
+				{
+					"game_id": "sf2st"
+				},
+				{
+					"game_id": "ggax"
+				}
+			]
+		},
+		{
+			"arcade_name": "Taito Station",
+			"latt": 777.777,
+			"long": 888.888,
+			"arcade_img_full": "/images/arcadecovers/mikado_full.png",
+			"arcade_img_thumbnail": "/images/arcadecovers/mikado_thumbnail.png",
+			"available_games": [
+				{
+					"game_id": "sf2st"
+				},
+				{
+					"game_id": "ggax"
+				}
+			]
+		},
+		{
+			"arcade_name": "Shinuku Sportsland",
+			"latt": 999,
+			"long": 9999,
+			"arcade_img_full": "/images/arcadecovers/mikado_full.png",
+			"arcade_img_thumbnail": "/images/arcadecovers/mikado_thumbnail.png",
+			"available_games": [
+				{
+					"game_id": "sf2st"
+				},
+				{
+					"game_id": "ggax"
 				}
 			]
 		}

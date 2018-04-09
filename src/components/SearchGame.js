@@ -15,7 +15,7 @@ class SearchGame extends Component {
       const gamesList = results.data.games.map((data, num)=> {
         return (
           <li key={num}>
-            <Link to='/live-map'>
+            <Link to='/well/aa'>
               <img src={data.game_img_thumbnail}/>
               <p>{data.game_name}</p>
             </Link>

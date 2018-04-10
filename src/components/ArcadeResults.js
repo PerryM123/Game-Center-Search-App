@@ -39,7 +39,7 @@ class ArcadeResults extends Component {
     }));
 
     return (
-      <div>
+      <div className="contents contents--arcade-results">
         <h2>Arcade Search</h2>
         <h3>Hmm: {
           this.state.gamesList.map((item,i)=>{

@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 class SplashMenu extends Component {
   render() {
     return (
-      <div>
+      <div className="contents contents--splash-menu">
         <h2>Welcome!</h2>
         <p>text text text text text text 
         text text text text </p>

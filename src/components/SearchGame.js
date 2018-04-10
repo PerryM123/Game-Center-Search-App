@@ -31,7 +31,7 @@ class SearchGame extends Component {
   }
   render() {
     return (
-      <div className="search-game">
+      <div className="contents contents--search-game">
         <h2>Search By Game</h2>
         <ul>
           {this.state.gamesList}

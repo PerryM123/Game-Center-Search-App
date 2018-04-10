@@ -18,7 +18,7 @@ class App extends Component {
 
   render() {
     return (
-      <div>
+      <div className="contents contents--find-menu">
         <h2>Find Game</h2>
         <div>
           <Link to='/live-map'>Search for Arcade near me (Google Maps)</Link>  

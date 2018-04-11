@@ -11,7 +11,7 @@
 					"game_id": "sf2st"
 				},
 				{
-					"game_id": "ggax"
+					"game_id": "mbacc"
 				}
 			]
 		},
@@ -26,7 +26,7 @@
 					"game_id": "sf2st"
 				},
 				{
-					"game_id": "ggax"
+					"game_id": "ggac"
 				}
 			]
 		},
@@ -38,10 +38,10 @@
 			"arcade_img_thumbnail": "/images/arcadecovers/mikado_thumbnail.png",
 			"available_games": [
 				{
-					"game_id": "sf2st"
+					"game_id": "sf3-3s"
 				},
 				{
-					"game_id": "ggax"
+					"game_id": "ggac"
 				}
 			]
 		},
@@ -53,10 +53,10 @@
 			"arcade_img_thumbnail": "/images/arcadecovers/mikado_thumbnail.png",
 			"available_games": [
 				{
-					"game_id": "sf2st"
+					"game_id": "mvc1"
 				},
 				{
-					"game_id": "ggax"
+					"game_id": "ssf"
 				}
 			]
 		},

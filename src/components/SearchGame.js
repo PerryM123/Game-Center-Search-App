@@ -16,7 +16,7 @@ class SearchGame extends Component {
           // Trying to fix this
           // Use this as reference: https://medium.com/@pshrmn/a-simple-react-router-v4-tutorial-7f23ff27adf
           // There needs to be another router connected here.
-        const link = "/well/well/" + data.game_id;
+        const link = "/search-game/" + data.game_id;
         return (
           <li key={num}>
             <Link to={link}>

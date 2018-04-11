@@ -5,6 +5,7 @@ import FindMenu from './FindMenu';
 import LiveMap from './LiveMap';
 import SearchGame from './SearchGame';
 import AboutUs from './AboutUs';
+import Games from './Games';
 import ContactUs from './ContactUs';
 import ArcadeResults from './ArcadeResults';
 import PageNotFound from './PageNotFound';
@@ -31,10 +32,9 @@ class Main extends Component {
           <Route exact path='/' component={SplashMenu}/>
           <Route path='/find-menu' component={FindMenu}/>
           <Route path='/live-map' component={LiveMap}/>
-          <Route path='/search-game' component={SearchGame}/>
+          <Route path='/search-game' component={Games}/>
           <Route path='/about-us' component={AboutUs}/>
           <Route path='/contact-us' component={ContactUs}/>
-          <Route path='/well/well/:id' component={ArcadeResults} />
           <Route component={PageNotFound}/>
         </Switch>
       </div>

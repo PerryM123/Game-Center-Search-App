@@ -13,28 +13,30 @@ npm start
 
 ## Dependancies
 
-* React 
+* React
 * React DOM
-* React Scripts
+* React Scripts (Ejected)
 * Prop Types
 * Google Maps React
 * Styled Components
+* Axios
+* Sass Loader
 
 ## Early App UI/UX Flowchart
 ![alt text](https://github.com/PerryM123/Game-Center-Search-App/blob/master/uiux-flowchat.jpg)
 
-## Personal Milestones 
+## Personal Milestones
 
 ### Closer to reach:
 
 * Integrate testing (Jest)
 * Prepping JSON data to be loaded into the app successfully (internally or externally)
 * Google Maps integration with Pins
-* Get a handle on transitioning between components cleaning
-* Have a nice gradient and color when designing app
+* Get a handle on transitioning between components cleanly
+* Have a nice gradient design and color when designing app
 
 ### Harder to reach:
 
-* Integrating Firebase/MangoDB
+* Integrating Firebase/MangoDB (to learn how to handle things like "isLoggedIn()")
 * Lazy Loading Components and Images
 

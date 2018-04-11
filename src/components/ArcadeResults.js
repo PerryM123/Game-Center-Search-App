@@ -33,14 +33,10 @@ class ArcadeResults extends Component {
   render() {
     const ourGame = this.props.match.params.id; // game in parameter 
     // arrNAme.find(ourGame) 
-    const filteredData = this.state.gamesList.filter((item => {
-      console.log(item);
-      (ourGame === item.available_games.game_id)
-    }));
 
     return (
       <div className="contents contents--arcade-results">
-        <h2>Arcade Search</h2>
+        <h2>Arcade Search: {ourGame}</h2>
         <h3>Hmm: {
           this.state.gamesList.map((item,i)=>{
             console.log(item);

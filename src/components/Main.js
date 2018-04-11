@@ -34,7 +34,7 @@ class Main extends Component {
           <Route path='/search-game' component={SearchGame}/>
           <Route path='/about-us' component={AboutUs}/>
           <Route path='/contact-us' component={ContactUs}/>
-          <Route path='/well/:id' component={ArcadeResults} />
+          <Route path='/well/well/:id' component={ArcadeResults} />
           <Route component={PageNotFound}/>
         </Switch>
       </div>

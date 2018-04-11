@@ -12,10 +12,14 @@ class SearchGame extends Component {
   componentDidMount() {
     axios.get('gameData.json')
      .then((results) => {
-      const gamesList = results.data.games.map((data, num)=> {
+        const gamesList = results.data.games.map((data, num)=> {
+          // Trying to fix this
+          // Use this as reference: https://medium.com/@pshrmn/a-simple-react-router-v4-tutorial-7f23ff27adf
+          // There needs to be another router connected here.
+        const link = "/well/well/" + data.game_id;
         return (
           <li key={num}>
-            <Link to='/well/aa'>
+            <Link to={link}>
               <img src={data.game_img_thumbnail}/>
               <p>{data.game_name}</p>
             </Link>

@@ -16,19 +16,35 @@ class ArcadeResults extends Component {
       this.setState({
         gamesList: results.data.arcades
       });
-      const arcadeList = results.data.arcades.map((data, num)=> {
-        return (
-          <li key={num}>
-            <img src={data.arcade_img_thumbnail}/>
-            <p>{data.arcade_name}</p>
-          </li>
-        );
-      });
+      if ( results.data.arcades ) {
+        console.log("hit");
+        const arcadeList = results.data.arcades.map((data, num)=> {
+          console.log("hmmm1111");
+          const stuffers = data.available_games;
+          console.log(stuffers);
+          if ( this.stuffers ) {
+            this.stuffers.map((data2)=> {
+              console.log("data2.available_games is:");
+              console.log(data2.available_games);
+              console.log("hmmm2222");
+              return (
+                <li key={num}>
+                  <img src={data.arcade_img_thumbnail}/>
+                  <p>{data.arcade_name}</p>
+                  <b>wow {data2.available_games}</b>
+                </li>
+              )
+            })
+          } else {
+            console.log("wow");
+          }
+        });
 
-      this.setState({
-        arcadeData: arcadeList
-      });
-     });
+        this.setState({
+          arcadeData: arcadeList
+        });
+      }
+    });
   }
   render() {
     const ourGame = this.props.match.params.id; // game in parameter 
@@ -39,7 +55,7 @@ class ArcadeResults extends Component {
         <h2>Arcade Search: {ourGame}</h2>
         <h3>Hmm: {
           this.state.gamesList.map((item,i)=>{
-            console.log(item);
+            // console.log(item);
             return <div key={i}>{item.arcade_name}</div>
           })
         }</h3>

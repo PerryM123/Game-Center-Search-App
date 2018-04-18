@@ -24,7 +24,7 @@ class SearchGame extends Component {
           return (
             <li key={num}>
               <Link to={link}>
-                <img src={data.game_img_thumbnail}/>
+                <img src={data.game_img_thumbnail} alt={data.game_id}/>
                 <p>{data.game_name}</p>
               </Link>
             </li>
@@ -42,10 +42,10 @@ class SearchGame extends Component {
     return (
       <div className="contents contents--search-game">
         {
-          (this.state.loading) ? <div class="loading_now"><img src={loading_logo} alt="loading-icon" /></div> : null
+          (this.state.loading) ? <div className="loading_now"><img src={loading_logo} alt="loading-icon" /></div> : null
         }
         <h2>Search By Game</h2>
-        <ul class="loaded-games">
+        <ul className="loaded-games">
           {this.state.gamesList}
         </ul>
         <button onClick={this.buttonHandler}>Load More</button>

@@ -3,11 +3,9 @@ import { Switch, Route } from 'react-router-dom'
 import SplashMenu from './SplashMenu';
 import FindMenu from './FindMenu';
 import LiveMap from './LiveMap';
-import SearchGame from './SearchGame';
 import AboutUs from './AboutUs';
 import Games from './Games';
 import ContactUs from './ContactUs';
-import ArcadeResults from './ArcadeResults';
 import PageNotFound from './PageNotFound';
 
 /*

@@ -2,8 +2,8 @@
 	"arcades": [
 		{
 			"arcade_name": "Mikado",
-			"latt": 111.111,
-			"long": 222.222,
+			"latt": 35.7127351,
+			"long": 139.7034548,
 			"arcade_img_full": "/images/arcadecovers/mikado_full.png",
 			"arcade_img_thumbnail": "/images/arcadecovers/mikado_thumbnail.png",
 			"available_games": [
@@ -17,8 +17,8 @@
 		},
 		{
 			"arcade_name": "HEY! Arcade",
-			"latt": 333.333,
-			"long": 444.444,
+			"latt": 35.699024,
+			"long": 139.771062,
 			"arcade_img_full": "/images/arcadecovers/mikado_full.png",
 			"arcade_img_thumbnail": "/images/arcadecovers/mikado_thumbnail.png",
 			"available_games": [
@@ -32,8 +32,8 @@
 		},
 		{
 			"arcade_name": "Fun Fun Funland",
-			"latt": 555.555,
-			"long": 666.666,
+			"latt": 35.722462,
+			"long": 140.04359999999997,
 			"arcade_img_full": "/images/arcadecovers/mikado_full.png",
 			"arcade_img_thumbnail": "/images/arcadecovers/mikado_thumbnail.png",
 			"available_games": [
@@ -46,9 +46,9 @@
 			]
 		},
 		{
-			"arcade_name": "Taito Station",
-			"latt": 777.777,
-			"long": 888.888,
+			"arcade_name": "Kashiwa Taito Station",
+			"latt": 35.861365,
+			"long": 139.97267,
 			"arcade_img_full": "/images/arcadecovers/mikado_full.png",
 			"arcade_img_thumbnail": "/images/arcadecovers/mikado_thumbnail.png",
 			"available_games": [
@@ -62,8 +62,8 @@
 		},
 		{
 			"arcade_name": "Shinuku Sportsland",
-			"latt": 999,
-			"long": 9999,
+			"latt": 35.6932072,
+			"long": 139.70187139999996,
 			"arcade_img_full": "/images/arcadecovers/mikado_full.png",
 			"arcade_img_thumbnail": "/images/arcadecovers/mikado_thumbnail.png",
 			"available_games": [

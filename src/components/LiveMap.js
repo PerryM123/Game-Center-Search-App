@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Maps from './Maps';
 
 class LiveMap extends Component {
   render() {
@@ -6,6 +7,7 @@ class LiveMap extends Component {
       <div className="contents contents--live-map">
         <h2>Livemap</h2>
         <p>GOoogle maps here</p>
+        <Maps />
       </div>
     );
   }

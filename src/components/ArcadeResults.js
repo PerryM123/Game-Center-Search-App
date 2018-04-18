@@ -17,47 +17,43 @@ class ArcadeResults extends Component {
         gamesList: results.data.arcades
       });
       if ( results.data.arcades ) {
-        console.log("hit");
-        const arcadeList = results.data.arcades.map((data, num)=> {
-          console.log("hmmm1111");
-          const stuffers = data.available_games;
-          console.log(stuffers);
-          if ( this.stuffers ) {
-            this.stuffers.map((data2)=> {
-              console.log("data2.available_games is:");
-              console.log(data2.available_games);
-              console.log("hmmm2222");
-              return (
-                <li key={num}>
-                  <img src={data.arcade_img_thumbnail}/>
-                  <p>{data.arcade_name}</p>
-                  <b>wow {data2.available_games}</b>
-                </li>
-              )
-            })
-          } else {
-            console.log("wow");
-          }
+        const arcadeMatchList = results.data.arcades.filter((arcade) => {
+          return arcade.available_games.some((game) => {
+            return (game.game_id === this.props.match.params.id)
+          })
         });
 
+        console.log("arcadeMatchList");
+        console.log(arcadeMatchList);
+
+        console.log("gamesList");
+        console.log(this.state.gamesList);
+
         this.setState({
-          arcadeData: arcadeList
+          gamesList: arcadeMatchList
         });
       }
     });
   }
   render() {
-    const ourGame = this.props.match.params.id; // game in parameter 
-    // arrNAme.find(ourGame) 
+    const ourGame = this.props.match.params.id; // game in parameter
+    // arrNAme.find(ourGame)
 
     return (
       <div className="contents contents--arcade-results">
         <h2>Arcade Search: {ourGame}</h2>
         <h3>Hmm: {
+          /*
+          * React Question:
+          * What is the correct way of formating a Conditional (ternary) Operator??
+          */
+          this.state.gamesList.length > 0 ?
           this.state.gamesList.map((item,i)=>{
-            // console.log(item);
-            return <div key={i}>{item.arcade_name}</div>
-          })
+            return <div key={i}>{i + 1}) {item.arcade_name}</div>
+          }) :
+          <div>
+            NO ARCADES MATCHED!
+          </div>
         }</h3>
         <p>
         </p>

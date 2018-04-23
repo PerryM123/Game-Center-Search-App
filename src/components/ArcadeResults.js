@@ -13,7 +13,7 @@ class ArcadeResults extends Component {
     axios.get('/arcadeData.json')
      .then((results) => {
       this.setState({
-        gamesList: results.data.arcades
+        arcadeList: results.data.arcades
       });
       if ( results.data.arcades ) {
         const arcadeMatchList = results.data.arcades.filter((arcade) => {
@@ -25,15 +25,34 @@ class ArcadeResults extends Component {
         console.log("arcadeMatchList");
         console.log(arcadeMatchList);
 
-        console.log("gamesList");
-        console.log(this.state.gamesList);
+        console.log("arcadeList");
+        console.log(this.state.arcadeList);
 
         this.setState({
-          gamesList: arcadeMatchList
+          arcadeList: arcadeMatchList
         });
       }
     });
   }
+
+  arcadeRenderer() {
+    return (
+      this.state.arcadeList.map((item,i)=>{
+        return ( 
+          <div key={i}>{i + 1}) {item.arcade_name}</div> 
+        )
+      })
+    );
+  }
+
+  arcadeNoRenderer() {
+    return (
+      <div>
+        NO ARCADES MATCHED!
+      </div>
+    )
+  }
+
   render() {
     const ourGame = this.props.match.params.id; // game in parameter
     // arrNAme.find(ourGame)
@@ -41,24 +60,19 @@ class ArcadeResults extends Component {
     return (
       <div className="contents contents--arcade-results">
         <h2>Arcade Search: {ourGame}</h2>
-        <h3>Hmm: {
+        <h3>Hmm: 
+        {
           /*
           * React Question:
           * What is the correct way of formating a Conditional (ternary) Operator??
+          *
+          * ANSWER: To improve readibility, it is recommended to make only a simple one line.
+          *         Separate functions. Don't to do everything in render()
           */
-          this.state.gamesList.length > 0 ?
-          this.state.gamesList.map((item,i)=>{
-            return <div key={i}>{i + 1}) {item.arcade_name}</div>
-          }) :
-          <div>
-            NO ARCADES MATCHED!
-          </div>
-        }</h3>
-        <p>
-        </p>
-        <ul>
-          {/*this.state.arcadeData*/}
-        </ul>
+          (this.state.arcadeList) ? this.arcadeRenderer() : this.arcadeNoRenderer()
+        }
+        </h3>
+        <p></p>
       </div>
     );
   }

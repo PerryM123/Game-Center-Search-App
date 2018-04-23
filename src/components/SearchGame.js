@@ -13,9 +13,15 @@ class SearchGame extends Component {
     }
     this.buttonHandler = this.buttonHandler.bind(this);
   }
-  componentDidMount() {
-    axios.get('gameData.json')
+  componentWillMount() {
+    console.log("componentWillMount()");
+    /*
+    * No relative path for json data
+    */
+    axios.get('/gameData.json')
       .then((results) => {
+
+    console.log("componentWillMount() then");
         const gamesList = results.data.games.map((data, num)=> {
           const link = "/search-game/" + data.game_id;
           this.setState({
@@ -33,6 +39,8 @@ class SearchGame extends Component {
         this.setState({
           gamesList: gamesList
         });
+
+    console.log("componentWillMount() SETSTATE");
       });
   }
   buttonHandler() {

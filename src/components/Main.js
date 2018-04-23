@@ -24,15 +24,15 @@ class Main extends Component {
       <div>
         <Switch>
         {/*
-          ReactJS Question:
-          '/search-game' works but '/search-game/' does not...
+          ReactJS Advice:
+          Always end url with slash '/' to make it like /index.html
         */}
           <Route exact path='/' component={SplashMenu}/>
-          <Route path='/find-menu' component={FindMenu}/>
-          <Route path='/live-map' component={LiveMap}/>
-          <Route path='/search-game' component={Games}/>
-          <Route path='/about-us' component={AboutUs}/>
-          <Route path='/contact-us' component={ContactUs}/>
+          <Route path='/find-menu/' component={FindMenu}/>
+          <Route path='/live-map/' component={LiveMap}/>
+          <Route path='/search-game/' component={Games}/>
+          <Route path='/about-us/' component={AboutUs}/>
+          <Route path='/contact-us/' component={ContactUs}/>
           <Route component={PageNotFound}/>
         </Switch>
       </div>

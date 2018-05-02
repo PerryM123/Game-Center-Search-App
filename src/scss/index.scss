@@ -26,6 +26,27 @@ body {
 	}
 	&--arcade-results {
 		border: 5px solid yellow;
+		&__arcade-info {
+
+		}
+		&__cover-image {
+			width: 100%;
+			display: block;
+		}
+		&__image-carousel {
+			width: 100%;
+			&--images {
+				color: black;
+			}
+		}
+		&__buttons-area {
+			&--google-maps {
+				color: red;
+			}
+			&--read-more {
+				color: purple;
+			}
+		} 
 	}
 	&--contact {
 		border: 5px solid pink;

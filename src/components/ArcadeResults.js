@@ -15,6 +15,8 @@ class ArcadeResults extends Component {
       this.setState({
         arcadeList: results.data.arcades
       });
+      console.log("arcade data: ");
+      console.log(results);
       if ( results.data.arcades ) {
         const arcadeMatchList = results.data.arcades.filter((arcade) => {
           return arcade.available_games.some((game) => {
@@ -36,10 +38,31 @@ class ArcadeResults extends Component {
   }
 
   arcadeRenderer() {
+    const cover_image = "",
+          SOME_GMAPS_LINK_HERE = "",
+          SOME_READMORE_LINK_HERE = ""; 
     return (
       this.state.arcadeList.map((item,i)=>{
         return ( 
-          <div key={i}>{i + 1}) {item.arcade_name}</div> 
+          <div key={i}>{i + 1}) {item.arcade_name}
+            <div className="contents--arcade-results__arcade-info">
+              <img className="contents--arcade-results__cover-image" src={cover_image} />
+              <div className="contents--arcade-results__image-carousel">
+                <img className="contents--arcade-results__image-carousel--images" src={cover_image} />
+                <img className="contents--arcade-results__image-carousel--images" src={cover_image} />
+                <img className="contents--arcade-results__image-carousel--images" src={cover_image} />
+                  <img className="contents--arcade-results__image-carousel--images" src={cover_image} />
+                </div>
+                <div>
+                  <h2>{/*Arcade title here*/}</h2>
+                  <p>{/*Arcade title here*/}</p>
+                  <div className="contents--arcade-results__buttons-area">
+                    <a className="contents--arcade-results__buttons-area--google-maps" href={SOME_GMAPS_LINK_HERE} />
+                    <a className="contents--arcade-results__buttons-area--read-more" href={SOME_READMORE_LINK_HERE} />
+                  </div>
+                </div>
+              </div> 
+            </div>
         )
       })
     );

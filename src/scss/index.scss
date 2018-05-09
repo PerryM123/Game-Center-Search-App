@@ -56,10 +56,10 @@ body {
 	}
 	&--live-map {
 		border: 5px solid red;
-		.actual-map {
-			height: 500px;
-			width: 500px;
-			border: 2px solid orange;
+		.the-map {
+          position: relative;
+          height: 500px;
+          margin: 0px 0px 40px;
 		}
 	}
 	&--404 {

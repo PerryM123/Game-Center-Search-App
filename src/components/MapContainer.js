@@ -11,10 +11,10 @@ export class MapContainer extends Component {
       activeMarker: {},
       selectedPlace: {},
       currentLocation: {},
-      arcadeList: []
+      arcadeList: [],
+      selectedArcade: ""
     };
     this.showCurrentPosition = this.showCurrentPosition.bind(this);
-
   }
   componentDidMount() {
     console.log("componentDidMount");
@@ -28,12 +28,30 @@ export class MapContainer extends Component {
   componentWillMount() {
     console.log("componentWillMount");
   }
+  findSelectedArcade() {
+    // console.log("selectedPlace.name"); // debug
+    // console.log(this.state.selectedPlace.name); // debug
+    const filtered = this.state.arcadeList.filter( item => this.state.selectedPlace.name === item.arcade_name );
+    console.log("filtered"); // debug
+    console.log(filtered); // debug
+    return filtered;
+  }
   onMarkerClick(props, marker, e) {
+    /*
+    * FIXME:
+    * Calling setState twice in a row doesn't seem correct here... Find a better solution
+    * The Idea: On click set the selectedPlace, then use the selectPlace value to get the arcade info
+    */
     this.setState({
       selectedPlace: props,
       activeMarker: marker,
-      showingInfoWindow: true
+      showingInfoWindow: true,
     });
+    this.setState({
+      selectedArcade: this.findSelectedArcade()
+    });
+    console.log("selectedArcade");
+    console.log(this.state.selectedArcade);
   }
   onMapClicked = () => {
     if (this.state.showingInfoWindow)
@@ -79,13 +97,14 @@ export class MapContainer extends Component {
   }
   addMarker(google) {
     const arcadeList = this.state.arcadeList;
-    console.log("addMarker: arcadeList");
-    console.log(arcadeList);
+    // console.log("addMarker: arcadeList"); // debugging
+    // console.log(arcadeList); // debugging
 
     if (arcadeList) {
     const stuff = arcadeList.map((data, index) => {
     return (
       <Marker
+        key={index}
         onClick={this.onMarkerClick}
         icon={{
           anchor: new google.maps.Point(32, 32),
@@ -100,8 +119,58 @@ export class MapContainer extends Component {
       />
     )
     });
-    console.log("the stuff");
-    console.log(stuff);
+    // console.log("the stuff"); // debugging
+    // console.log(stuff); // debugging
+  return stuff;
+  }
+  }
+  addInfoWindow() {
+    /*
+    * React Question:
+    How should naming conventions be?
+    The state's name is selectedArcade.
+    I don't want to keep calling it like:
+    this.state.selectedArcade
+    or
+    this.state.selectedArcade.arcade_img_thumbnail
+
+    So I move the state to a variable.
+    What should I name that variable that holds a copy of the state?
+    */
+    const selectedArcade = this.state.selectedArcade;
+    const arcadeList = this.state.arcadeList;
+    // console.log("addMarker: arcadeList"); // debugging
+    // console.log(arcadeList); // debugging
+
+    if (arcadeList) {
+    const stuff = arcadeList.map((data, index) => {
+    return (
+      <InfoWindow
+        marker={this.state.activeMarker}
+        visible={this.state.showingInfoWindow}
+      >
+        <div className="info-window">
+          <h2 className="info-window__title">{this.state.selectedPlace.name}</h2>
+          {/*
+          * React Question:
+          * Should I just keep using sass loader with a stylesheet file
+          * or
+          * Should I just attach the css like below in the style tags with {{}}?
+          * or
+          * Should I prepare to get used to using CSS Modules (similar to Vue's way of handling css??) ?
+          */}
+          <img className="info-window__thumbnail" src={selectedArcade.arcade_img_thumbnail} />
+          <p>{selectedArcade.description}</p>
+          <div className="info-window__button-area">
+            <a href={ "/" + selectedArcade.arcade_id }>Link to Arcade Page</a>
+            <a href="https://www.google.com">Google Maps Direct Link</a>
+          </div>
+        </div>
+      </InfoWindow>
+    )
+    });
+    // console.log("the stuff"); // debugging
+    // console.log(stuff); // debugging
   return stuff;
   }
   }
@@ -112,8 +181,8 @@ export class MapContainer extends Component {
     }
 
     const sowhat = this.addMarker(google);
-    console.log("sowhat2222");
-    console.log(sowhat);
+    // console.log("sowhat2222"); // debugging
+    // console.log(sowhat); // debugging
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition((position) => {
         this.setState({
@@ -128,6 +197,14 @@ export class MapContainer extends Component {
       alert("error");
     }
 
+    const selectedArcade = this.state.selectedArcade;
+    const arcadeList = this.state.arcadeList;
+    console.log("12selectedArcade:");
+    console.log(selectedArcade);
+    console.log("23arcadeList");
+    console.log(arcadeList);
+    // console.log("addMarker: arcadeList"); // debugging
+    // console.log(arcadeList); // debugging
     return (
       <div className="the-map">
         <div className="herere">
@@ -167,26 +244,21 @@ export class MapContainer extends Component {
           />
 
           {sowhat}
-          <InfoWindow
-            marker={this.state.activeMarker}
-            visible={this.state.showingInfoWindow}
-          >
-            <div>
-              <h2>{this.state.selectedPlace.name}</h2>
-              {/*
-              * React Question:
-              * Should I just keep using sass loader with a stylesheet file
-              * or
-              * Should I just attach the css like below in the styletags?
-              * or
-              * Should I prepare to get used to using CSS Modules (similar to Vue's way of handling css??) ?
-              */}
-              <img style={{width: '100%'}} src="/images/arcadecovers/mikado-marker-thumbnail.jpg" />
-              <a href="https://www.google.com">Link to Arcade Page</a>
-              <a href="https://www.google.com">Google Maps Direct Link</a>
-              <p>Description about the place here and here and here and here.</p>
-            </div>
-          </InfoWindow>
+
+      <InfoWindow
+        marker={this.state.activeMarker}
+        visible={this.state.showingInfoWindow}
+      >
+        <div className="info-window">
+          <h2 className="info-window__title">{this.state.selectedPlace.name}</h2>
+          <img className="info-window__thumbnail" src={selectedArcade.arcade_img_thumbnail} />
+          <p>{selectedArcade.description}</p>
+          <div className="info-window__button-area">
+            <a href={ "/" + selectedArcade.arcade_id }>Link to Arcade Page</a>
+            <a href="https://www.google.com">Google Maps Direct Link</a>
+          </div>
+        </div>
+      </InfoWindow>
         </Map>
       </div>
     );

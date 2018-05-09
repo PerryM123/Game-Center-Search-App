@@ -53,17 +53,35 @@ export class MapContainer extends Component {
   /*
   * React Question:
   * When should I use the arrow function instead of the normal function???
+  * If this function is NOT an arrow function, there's errors...
   */
-  onMapClicked() {
+  onMapClicked = () => {
     if (this.state.showingInfoWindow)
       this.setState({
         activeMarker: null,
         showingInfoWindow: false
       });
   };
+  showCurrPos(google) {
+    return (
+      <Marker
+        onClick={this.onMarkerClick}
+        icon={{
+          anchor: new google.maps.Point(32, 32),
+          scaledSize: new google.maps.Size(64, 64)
+        }}
+        name="Current"
+        position={{
+          lat: this.state.currentLocation.lat,
+          lng: this.state.currentLocation.long
+        }}
+        title="The marker`s title will appear as a tooltip."
+
+      />
+    )
+  }
   addMarkers(google) {
     const arcadeList = this.state.arcadeList;
-
     if (arcadeList) {
       const markers = arcadeList.map((data, index) => {
       return (
@@ -91,7 +109,6 @@ export class MapContainer extends Component {
     if (!this.props.google) {
       return <div>Loading...</div>;
     }
-
     const mapMarkers = this.addMarkers(google);
     // console.log("markers2222"); // debugging
     // console.log(mapMarkers); // debugging
@@ -121,16 +138,18 @@ export class MapContainer extends Component {
       <div className="the-map">
         <div className="herere">
         </div>
-        <button> Hello </button>
         <Map
           centerAroundCurrentLocation
           onClick={this.onMapClicked}
           google={this.props.google}
           zoom={14}>
+          {
+            this.state.currentLocation ? this.showCurrPos(google) : <p>nothingggg</p>
+          }
           <Marker
             onClick={this.onMarkerClick}
             icon={{
-              // url: "/map-icons/tshirt.svg",
+              url: "/map-icons/tshirt.svg",
               anchor: new google.maps.Point(32, 32),
               scaledSize: new google.maps.Size(64, 64)
             }}
@@ -142,7 +161,7 @@ export class MapContainer extends Component {
           <Marker
             onClick={this.onMarkerClick}
             icon={{
-              // url: "/map-icons/shorts.svg",
+              url: "/map-icons/shorts.svg",
               anchor: new google.maps.Point(32, 32),
               scaledSize: new google.maps.Size(64, 64)
             }}

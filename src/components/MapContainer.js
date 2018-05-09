@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Map, InfoWindow, Marker, GoogleApiWrapper } from "google-maps-react";
+import axios from 'axios';
 
 export class MapContainer extends Component {
   constructor(props) {
@@ -9,19 +10,20 @@ export class MapContainer extends Component {
       showingInfoWindow: false,
       activeMarker: {},
       selectedPlace: {},
-      currentLocation: {}
+      currentLocation: {},
+      arcadeList: []
     };
     this.showCurrentPosition = this.showCurrentPosition.bind(this);
 
   }
   componentDidMount() {
     console.log("componentDidMount");
-    if (this.showCurrentPosition() ){
-      console.log("YES");
-    } else {
-
-      console.log("NO");
-    }
+    axios.get('/arcadeData.json')
+     .then((results) => {
+      this.setState({
+        arcadeList: results.data.arcades
+      });
+    });
   }
   componentWillMount() {
     console.log("componentWillMount");
@@ -33,6 +35,13 @@ export class MapContainer extends Component {
       showingInfoWindow: true
     });
   }
+  onMapClicked = () => {
+    if (this.state.showingInfoWindow)
+      this.setState({
+        activeMarker: null,
+        showingInfoWindow: false
+      });
+  };
   showCurrentPosition() {
     console.log("showCurrentPosition now");
     const map = this.map;
@@ -49,12 +58,62 @@ export class MapContainer extends Component {
         console.log("NO map time");
     }
   }
+  showCurrPos(google) {
+    return (
+      <Marker
+        onClick={this.onMarkerClick}
+        icon={{
+          // url: "/map-icons/tshirt.svg",
+          anchor: new google.maps.Point(32, 32),
+          scaledSize: new google.maps.Size(64, 64)
+        }}
+        name="Current"
+        position={{
+          lat: this.state.currentLocation.lat,
+          lng: this.state.currentLocation.long
+        }}
+        title="The marker`s title will appear as a tooltip."
+
+      />
+    )
+  }
+  addMarker(google) {
+    const arcadeList = this.state.arcadeList;
+    console.log("addMarker: arcadeList");
+    console.log(arcadeList);
+
+    if (arcadeList) {
+    const stuff = arcadeList.map((data, index) => {
+    return (
+      <Marker
+        onClick={this.onMarkerClick}
+        icon={{
+          anchor: new google.maps.Point(32, 32),
+          scaledSize: new google.maps.Size(64, 64)
+        }}
+        name={data.arcade_name}
+        position={{
+          lat: data.latt,
+          lng: data.long
+        }}
+        title="The marker`s title will appear as a tooltip."
+      />
+    )
+    });
+    console.log("the stuff");
+    console.log(stuff);
+  return stuff;
+  }
+  }
   render() {
     const google=window.google
     if (!this.props.google) {
       return <div>Loading...</div>;
     }
 
+    const sowhat = this.addMarker(google);
+    console.log("sowhat2222");
+    console.log(sowhat);
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition((position) => {
         this.setState({
@@ -69,35 +128,45 @@ export class MapContainer extends Component {
       alert("error");
     }
 
-
     return (
       <div className="the-map">
+        <div className="herere">
+        </div>
         <button onClick={this.showCurrentPosition}> Hello </button>
-        <Map centerAroundCurrentLocation google={this.props.google} zoom={14}>
+        <Map
+          centerAroundCurrentLocation
+          onClick={this.onMapClicked}
+          google={this.props.google}
+          zoom={14}>
+          {
+            this.state.currentLocation ? this.showCurrPos(google) : <p>nothingggg</p>
+          }
           <Marker
             onClick={this.onMarkerClick}
             icon={{
-              url: "/map-icons/tshirt.svg",
+              // url: "/map-icons/tshirt.svg",
               anchor: new google.maps.Point(32, 32),
               scaledSize: new google.maps.Size(64, 64)
             }}
             name="Mikado"
-        position={{ lat: 35.7127351, lng: 139.7034548 }}
-        title="The marker`s title will appear as a tooltip."
+            position={{ lat: 35.7127351, lng: 139.7034548 }}
+            title="The marker`s title will appear as a tooltip."
 
           />
           <Marker
             onClick={this.onMarkerClick}
             icon={{
-              url: "/map-icons/shorts.svg",
+              // url: "/map-icons/shorts.svg",
               anchor: new google.maps.Point(32, 32),
               scaledSize: new google.maps.Size(64, 64)
             }}
             name="HEY! Arcade"
-        position={{ lat: 35.699024, lng: 139.771062 }}
-        title="The marker`s title will appear as a tooltip."
+            position={{ lat: 35.699024, lng: 139.771062 }}
+            title="The marker`s title will appear as a tooltip."
 
           />
+
+          {sowhat}
           <InfoWindow
             marker={this.state.activeMarker}
             visible={this.state.showingInfoWindow}

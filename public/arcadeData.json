@@ -2,6 +2,9 @@
 	"arcades": [
 		{
 			"arcade_name": "Mikado",
+			"arcade_id": "mikado",
+			"description": "Mikado's Description about the place here and here and here and here.",
+			"gmaps_link": "https://google.com/",
 			"latt": 35.7127351,
 			"long": 139.7034548,
 			"arcade_img_full": "/images/arcadecovers/mikado_full.png",
@@ -50,6 +53,9 @@
 		},
 		{
 			"arcade_name": "HEY! Arcade",
+			"arcade_id": "hey",
+			"description": "HEY! Arcade's Description about the place here and here and here and here.",
+			"gmaps_link": "https://google.com/",
 			"latt": 35.699024,
 			"long": 139.771062,
 			"arcade_img_full": "/images/arcadecovers/mikado_full.png",
@@ -65,6 +71,9 @@
 		},
 		{
 			"arcade_name": "Fun Fun Funland",
+			"arcade_id": "funfunfunland",
+			"description": "Fun Fun Funland's Description about the place here and here and here and here.",
+			"gmaps_link": "https://google.com/",
 			"latt": 35.722462,
 			"long": 140.04359999999997,
 			"arcade_img_full": "/images/arcadecovers/mikado_full.png",
@@ -80,6 +89,9 @@
 		},
 		{
 			"arcade_name": "Kashiwa Taito Station",
+			"arcade_id": "kashiwa-ts",
+			"description": "Kashiwa Taito Station's Description about the place here and here and here and here.",
+			"gmaps_link": "https://google.com/",
 			"latt": 35.861365,
 			"long": 139.97267,
 			"arcade_img_full": "/images/arcadecovers/mikado_full.png",
@@ -95,6 +107,9 @@
 		},
 		{
 			"arcade_name": "Shinuku Sportsland",
+			"arcade_id": "shinjuku-sportsland",
+			"description": "Shinuku Sportsland's Description about the place here and here and here and here.",
+			"gmaps_link": "https://google.com/",
 			"latt": 35.6932072,
 			"long": 139.70187139999996,
 			"arcade_img_full": "/images/arcadecovers/mikado_full.png",

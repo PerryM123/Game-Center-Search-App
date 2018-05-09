@@ -59,7 +59,7 @@
 			"latt": 35.699024,
 			"long": 139.771062,
 			"arcade_img_full": "/images/arcadecovers/mikado_full.png",
-			"arcade_img_thumbnail": "/images/arcadecovers/mikado_thumbnail.png",
+			"arcade_img_thumbnail": "/images/arcadecovers/hey_thumbnail.jpg",
 			"available_games": [
 				{
 					"game_id": "sf2st"
@@ -77,7 +77,7 @@
 			"latt": 35.722462,
 			"long": 140.04359999999997,
 			"arcade_img_full": "/images/arcadecovers/mikado_full.png",
-			"arcade_img_thumbnail": "/images/arcadecovers/mikado_thumbnail.png",
+			"arcade_img_thumbnail": "/images/arcadecovers/fun_thumbnail.jpg",
 			"available_games": [
 				{
 					"game_id": "sf3-3s"
@@ -95,7 +95,7 @@
 			"latt": 35.861365,
 			"long": 139.97267,
 			"arcade_img_full": "/images/arcadecovers/mikado_full.png",
-			"arcade_img_thumbnail": "/images/arcadecovers/mikado_thumbnail.png",
+			"arcade_img_thumbnail": "/images/arcadecovers/kashiwa_ts_thumbnail.jpg",
 			"available_games": [
 				{
 					"game_id": "mvc1"
@@ -113,7 +113,7 @@
 			"latt": 35.6932072,
 			"long": 139.70187139999996,
 			"arcade_img_full": "/images/arcadecovers/mikado_full.png",
-			"arcade_img_thumbnail": "/images/arcadecovers/mikado_thumbnail.png",
+			"arcade_img_thumbnail": "/images/arcadecovers/shinjuku_sportsland_thumbnail.jpg",
 			"available_games": [
 				{
 					"game_id": "sf2st"

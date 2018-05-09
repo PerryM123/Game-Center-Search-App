@@ -172,7 +172,19 @@ export class MapContainer extends Component {
             visible={this.state.showingInfoWindow}
           >
             <div>
-              <h1>{this.state.selectedPlace.name}</h1>
+              <h2>{this.state.selectedPlace.name}</h2>
+              {/*
+              * React Question:
+              * Should I just keep using sass loader with a stylesheet file
+              * or
+              * Should I just attach the css like below in the styletags?
+              * or
+              * Should I prepare to get used to using CSS Modules (similar to Vue's way of handling css??) ?
+              */}
+              <img style={{width: '100%'}} src="/images/arcadecovers/mikado-marker-thumbnail.jpg" />
+              <a href="https://www.google.com">Link to Arcade Page</a>
+              <a href="https://www.google.com">Google Maps Direct Link</a>
+              <p>Description about the place here and here and here and here.</p>
             </div>
           </InfoWindow>
         </Map>

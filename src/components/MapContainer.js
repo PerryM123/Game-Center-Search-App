@@ -14,7 +14,6 @@ export class MapContainer extends Component {
       arcadeList: [],
       selectedArcade: ""
     };
-    this.showCurrentPosition = this.showCurrentPosition.bind(this);
   }
   componentDidMount() {
     console.log("componentDidMount");
@@ -29,8 +28,6 @@ export class MapContainer extends Component {
     console.log("componentWillMount");
   }
   findSelectedArcade() {
-    // console.log("selectedPlace.name"); // debug
-    // console.log(this.state.selectedPlace.name); // debug
     const filtered = this.state.arcadeList.filter( item => this.state.selectedPlace.name === item.arcade_name );
     console.log("filtered"); // debug
     console.log(filtered); // debug
@@ -53,126 +50,41 @@ export class MapContainer extends Component {
     console.log("selectedArcade");
     console.log(this.state.selectedArcade);
   }
-  onMapClicked = () => {
+  /*
+  * React Question:
+  * When should I use the arrow function instead of the normal function???
+  */
+  onMapClicked() {
     if (this.state.showingInfoWindow)
       this.setState({
         activeMarker: null,
         showingInfoWindow: false
       });
   };
-  showCurrentPosition() {
-    console.log("showCurrentPosition now");
-    const map = this.map;
-    console.log("map: " + map);
-    const curr = this.state.currentLocation;
-    const google = this.props.google;
-    const maps = google.maps;
+  addMarkers(google) {
+    const arcadeList = this.state.arcadeList;
 
-    if (map) {
-        console.log("YES map time");
-        let center = new maps.LatLng(curr.lat, curr.long);
-        map.panTo(center);
-    } else {
-        console.log("NO map time");
+    if (arcadeList) {
+      const markers = arcadeList.map((data, index) => {
+      return (
+        <Marker
+          key={index}
+          onClick={this.onMarkerClick}
+          icon={{
+            anchor: new google.maps.Point(32, 32),
+            scaledSize: new google.maps.Size(64, 64)
+          }}
+          name={data.arcade_name}
+          position={{
+            lat: data.latt,
+            lng: data.long
+          }}
+          title="The marker`s title will appear as a tooltip."
+        />
+      )
+      });
+    return markers;
     }
-  }
-  showCurrPos(google) {
-    return (
-      <Marker
-        onClick={this.onMarkerClick}
-        icon={{
-          // url: "/map-icons/tshirt.svg",
-          anchor: new google.maps.Point(32, 32),
-          scaledSize: new google.maps.Size(64, 64)
-        }}
-        name="Current"
-        position={{
-          lat: this.state.currentLocation.lat,
-          lng: this.state.currentLocation.long
-        }}
-        title="The marker`s title will appear as a tooltip."
-
-      />
-    )
-  }
-  addMarker(google) {
-    const arcadeList = this.state.arcadeList;
-    // console.log("addMarker: arcadeList"); // debugging
-    // console.log(arcadeList); // debugging
-
-    if (arcadeList) {
-    const stuff = arcadeList.map((data, index) => {
-    return (
-      <Marker
-        key={index}
-        onClick={this.onMarkerClick}
-        icon={{
-          anchor: new google.maps.Point(32, 32),
-          scaledSize: new google.maps.Size(64, 64)
-        }}
-        name={data.arcade_name}
-        position={{
-          lat: data.latt,
-          lng: data.long
-        }}
-        title="The marker`s title will appear as a tooltip."
-      />
-    )
-    });
-    // console.log("the stuff"); // debugging
-    // console.log(stuff); // debugging
-  return stuff;
-  }
-  }
-  addInfoWindow() {
-    /*
-    * React Question:
-    How should naming conventions be?
-    The state's name is selectedArcade.
-    I don't want to keep calling it like:
-    this.state.selectedArcade
-    or
-    this.state.selectedArcade.arcade_img_thumbnail
-
-    So I move the state to a variable.
-    What should I name that variable that holds a copy of the state?
-    */
-    const selectedArcade = this.state.selectedArcade;
-    const arcadeList = this.state.arcadeList;
-    // console.log("addMarker: arcadeList"); // debugging
-    // console.log(arcadeList); // debugging
-
-    if (arcadeList) {
-    const stuff = arcadeList.map((data, index) => {
-    return (
-      <InfoWindow
-        marker={this.state.activeMarker}
-        visible={this.state.showingInfoWindow}
-      >
-        <div className="info-window">
-          <h2 className="info-window__title">{this.state.selectedPlace.name}</h2>
-          {/*
-          * React Question:
-          * Should I just keep using sass loader with a stylesheet file
-          * or
-          * Should I just attach the css like below in the style tags with {{}}?
-          * or
-          * Should I prepare to get used to using CSS Modules (similar to Vue's way of handling css??) ?
-          */}
-          <img className="info-window__thumbnail" src={selectedArcade.arcade_img_thumbnail} />
-          <p>{selectedArcade.description}</p>
-          <div className="info-window__button-area">
-            <a href={ "/" + selectedArcade.arcade_id }>Link to Arcade Page</a>
-            <a href="https://www.google.com">Google Maps Direct Link</a>
-          </div>
-        </div>
-      </InfoWindow>
-    )
-    });
-    // console.log("the stuff"); // debugging
-    // console.log(stuff); // debugging
-  return stuff;
-  }
   }
   render() {
     const google=window.google
@@ -180,9 +92,9 @@ export class MapContainer extends Component {
       return <div>Loading...</div>;
     }
 
-    const sowhat = this.addMarker(google);
-    // console.log("sowhat2222"); // debugging
-    // console.log(sowhat); // debugging
+    const mapMarkers = this.addMarkers(google);
+    // console.log("markers2222"); // debugging
+    // console.log(mapMarkers); // debugging
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition((position) => {
         this.setState({
@@ -209,15 +121,12 @@ export class MapContainer extends Component {
       <div className="the-map">
         <div className="herere">
         </div>
-        <button onClick={this.showCurrentPosition}> Hello </button>
+        <button> Hello </button>
         <Map
           centerAroundCurrentLocation
           onClick={this.onMapClicked}
           google={this.props.google}
           zoom={14}>
-          {
-            this.state.currentLocation ? this.showCurrPos(google) : <p>nothingggg</p>
-          }
           <Marker
             onClick={this.onMarkerClick}
             icon={{
@@ -242,9 +151,7 @@ export class MapContainer extends Component {
             title="The marker`s title will appear as a tooltip."
 
           />
-
-          {sowhat}
-
+          { mapMarkers }
       <InfoWindow
         marker={this.state.activeMarker}
         visible={this.state.showingInfoWindow}

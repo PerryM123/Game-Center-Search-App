@@ -49,6 +49,7 @@ class ArcadeResults extends Component {
 
   arcadeRenderer() {
     const swiperParams = {
+      slidesPerView: 5,
       spaceBetween: 30,
       freeMode: true,
       pagination: {
@@ -88,8 +89,10 @@ class ArcadeResults extends Component {
           <div key={arcadeKey} className="contents--arcade-results__arcade-info">
             <h2>{arcadeItem.arcade_name}</h2>
             <div className="contents--arcade-results__cover-image"
-                 style={{backgroundImage: "url(" + arcadeItem.cover_image + ")"}}></div>
-            <div className="contents--arcade-results__image-carousel">
+                 style={{
+                  backgroundImage: "url(" + arcadeItem.cover_image + ")"}}
+            ></div>
+            <ul className="contents--arcade-results__carousel-container">
               <Swiper {...swiperParams}>
               {/*
               * FIXME:
@@ -104,14 +107,19 @@ class ArcadeResults extends Component {
               {
                 arcadeItem.carousel_gallery.map((galleryItem, galleryKey) => {
                   return (
-                    <div key={galleryKey}>
-                      <img className="contents--arcade-results__image-carousel--images" src={galleryItem.gallery_image_link} alt={arcadeItem.arcade_name + " " + galleryKey } />
-                    </div>
+                    <li className="contents--arcade-results__carousel-images" key={galleryKey}
+                    style={{
+                      background: "url(" + galleryItem.gallery_image_link + ") no-repeat",
+                      backgroundSize: "cover",
+                      backgroundPosition: "center"
+                    }}>
+                      avb
+                    </li>
                   )
                 })
               }
               </Swiper>
-            </div>
+            </ul>
             <div>
               <p>{arcadeItem.description}</p>
               <div className="contents--arcade-results__buttons-area">

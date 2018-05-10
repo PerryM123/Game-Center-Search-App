@@ -41,14 +41,13 @@ body {
 			background-size: contain;
 			background-repeat: no-repeat;
 		}
-		&__image-carousel {
-			&--images {
-				color: black;
-	     	width: 40%;
-	     	background-color: lightgray;
-	     	border: 1px solid green;
-			}
+		&__carousel-container {
+
 		}
+		&__carousel-images {
+				height: 100px;
+        background-size: contain;
+			}
 		&__buttons-area {
 			margin: 0 0 40px;
 		}

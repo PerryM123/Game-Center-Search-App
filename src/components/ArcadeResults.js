@@ -135,7 +135,7 @@ class ArcadeResults extends Component {
               */
               }
                 <a className="contents--arcade-results__button contents--arcade-results__button--google-maps" href={arcadeItem.gmaps_link}> Google Maps </a>
-                <a className="contents--arcade-results__button contents--arcade-results__button--read-more" href={arcadeItem.gmaps_link}> Read More </a>
+                <a className="contents--arcade-results__button contents--arcade-results__button--read-more" href={"/arcade-info/" + arcadeItem.arcade_id}> Read More </a>
               </div>
             </div>
           </div>

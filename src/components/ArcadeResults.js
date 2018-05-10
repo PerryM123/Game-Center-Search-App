@@ -112,9 +112,7 @@ class ArcadeResults extends Component {
                       background: "url(" + galleryItem.gallery_image_link + ") no-repeat",
                       backgroundSize: "cover",
                       backgroundPosition: "center"
-                    }}>
-                      avb
-                    </li>
+                    }}></li>
                   )
                 })
               }

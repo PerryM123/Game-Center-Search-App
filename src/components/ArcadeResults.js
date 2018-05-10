@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import Swiper from 'react-id-swiper';
+import './../scss/swiper.scss'; // Double check to see if this is the correct way to use swiper's scss
 
 class ArcadeResults extends Component {
   constructor(props) {
@@ -38,6 +40,17 @@ class ArcadeResults extends Component {
   }
 
   arcadeRenderer() {
+    const params = {
+      slidesPerView: 3,
+      spaceBetween: 30,
+      freeMode: true,
+      pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+      }
+    };
+
+
     const cover_image = "",
           SOME_GMAPS_LINK_HERE = "",
           SOME_READMORE_LINK_HERE = "";
@@ -49,10 +62,13 @@ class ArcadeResults extends Component {
             {/*<img className="contents--arcade-results__cover-image" src={item.cover_image} />*/}
             <div className="contents--arcade-results__cover-image" style={{backgroundImage: "url(" + item.cover_image + ")"}}></div>
             <div className="contents--arcade-results__image-carousel">
-              <img className="contents--arcade-results__image-carousel--images" src={item.arcade_img_thumbnail} />
-              <img className="contents--arcade-results__image-carousel--images" src={item.arcade_img_thumbnail} />
-              <img className="contents--arcade-results__image-carousel--images" src={item.arcade_img_thumbnail} />
-              <img className="contents--arcade-results__image-carousel--images" src={item.arcade_img_thumbnail} />
+              <Swiper {...params}>
+            <div className="contents--arcade-results__image-carousel--images">Slide 1</div>
+            <div className="contents--arcade-results__image-carousel--images">Slide 2</div>
+            <div className="contents--arcade-results__image-carousel--images">Slide 3</div>
+            <div className="contents--arcade-results__image-carousel--images">Slide 4</div>
+            <div className="contents--arcade-results__image-carousel--images">Slide 5</div>
+          </Swiper>
             </div>
             <div>
               <p>{item.description}</p>

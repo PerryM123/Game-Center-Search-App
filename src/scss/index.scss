@@ -44,13 +44,14 @@ body {
 		&__image-carousel {
 			&--images {
 				color: black;
-	     	width: 200px;
+	     	width: 40%;
+	     	background-color: lightgray;
+	     	border: 1px solid green;
 			}
 		}
 		&__buttons-area {
 			margin: 0 0 40px;
 		}
-		
 		&__button {
 			padding: 10px;
 			border: 2px solid green;

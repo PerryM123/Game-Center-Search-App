@@ -4,7 +4,7 @@
 			"arcade_name": "Bikado",
 			"arcade_id": "bikado",
 			"description": "Bikado's Description about the place here and here and here and here.",
-			"gmaps_link": "https://google.com/",
+			"gmaps_link": "https://google.com/bikado",
 			"latt": 35.7127351,
 			"long": 139.7034548,
 			"arcade_img_full": "/images/arcadecovers/bikado_full.png",
@@ -55,10 +55,10 @@
 			"arcade_name": "HEY! Arcade",
 			"arcade_id": "hey",
 			"description": "HEY! Arcade's Description about the place here and here and here and here.",
-			"gmaps_link": "https://google.com/",
+			"gmaps_link": "https://google.com/hey",
 			"latt": 35.699024,
 			"long": 139.771062,
-			"arcade_img_full": "/images/arcadecovers/bikado_full.png",
+			"arcade_img_full": "/images/arcadecovers/hey_full.png",
 			"arcade_img_thumbnail": "/images/arcadecovers/hey_thumbnail.jpg",
 			"available_games": [
 				{
@@ -67,16 +67,49 @@
 				{
 					"game_id": "ggac"
 				}
+			],
+			"cover_image": "/images/arcadecovers/hey-cover.jpg",
+			"carousel_gallery": [
+				{
+					"gallery_image_link": "/images/arcadecovers/hey-carousel-1.jpg"
+				},
+				{
+					"gallery_image_link": "/images/arcadecovers/hey-carousel-2.jpg"
+				},
+				{
+					"gallery_image_link": "/images/arcadecovers/hey-carousel-3.jpg"
+				},
+				{
+					"gallery_image_link": "/images/arcadecovers/hey-carousel-4.jpg"
+				},
+				{
+					"gallery_image_link": "/images/arcadecovers/hey-carousel-5.jpg"
+				},
+				{
+					"gallery_image_link": "/images/arcadecovers/hey-carousel-6.jpg"
+				},
+				{
+					"gallery_image_link": "/images/arcadecovers/hey-carousel-7.jpg"
+				},
+				{
+					"gallery_image_link": "/images/arcadecovers/hey-carousel-8.jpg"
+				},
+				{
+					"gallery_image_link": "/images/arcadecovers/hey-carousel-9.jpg"
+				},
+				{
+					"gallery_image_link": "/images/arcadecovers/hey-carousel-10.jpg"
+				}
 			]
 		},
 		{
 			"arcade_name": "Fun Fun Funland",
 			"arcade_id": "funfunfunland",
 			"description": "Fun Fun Funland's Description about the place here and here and here and here.",
-			"gmaps_link": "https://google.com/",
+			"gmaps_link": "https://google.com/funfunfunland",
 			"latt": 35.722462,
 			"long": 140.04359999999997,
-			"arcade_img_full": "/images/arcadecovers/bikado_full.png",
+			"arcade_img_full": "/images/arcadecovers/fun_full.png",
 			"arcade_img_thumbnail": "/images/arcadecovers/fun_thumbnail.jpg",
 			"available_games": [
 				{
@@ -85,16 +118,49 @@
 				{
 					"game_id": "ggac"
 				}
+			],
+			"cover_image": "/images/arcadecovers/fun-cover.jpg",
+			"carousel_gallery": [
+				{
+					"gallery_image_link": "/images/arcadecovers/fun-carousel-1.jpg"
+				},
+				{
+					"gallery_image_link": "/images/arcadecovers/fun-carousel-2.jpg"
+				},
+				{
+					"gallery_image_link": "/images/arcadecovers/fun-carousel-3.jpg"
+				},
+				{
+					"gallery_image_link": "/images/arcadecovers/fun-carousel-4.jpg"
+				},
+				{
+					"gallery_image_link": "/images/arcadecovers/fun-carousel-5.jpg"
+				},
+				{
+					"gallery_image_link": "/images/arcadecovers/fun-carousel-6.jpg"
+				},
+				{
+					"gallery_image_link": "/images/arcadecovers/fun-carousel-7.jpg"
+				},
+				{
+					"gallery_image_link": "/images/arcadecovers/fun-carousel-8.jpg"
+				},
+				{
+					"gallery_image_link": "/images/arcadecovers/fun-carousel-9.jpg"
+				},
+				{
+					"gallery_image_link": "/images/arcadecovers/fun-carousel-10.jpg"
+				}
 			]
 		},
 		{
 			"arcade_name": "Kashiwa Taito Station",
 			"arcade_id": "kashiwa-ts",
 			"description": "Kashiwa Taito Station's Description about the place here and here and here and here.",
-			"gmaps_link": "https://google.com/",
+			"gmaps_link": "https://google.com/kashiwa-ts",
 			"latt": 35.861365,
 			"long": 139.97267,
-			"arcade_img_full": "/images/arcadecovers/bikado_full.png",
+			"arcade_img_full": "/images/arcadecovers/kashiwa-ts_full.png",
 			"arcade_img_thumbnail": "/images/arcadecovers/kashiwa_ts_thumbnail.jpg",
 			"available_games": [
 				{
@@ -103,16 +169,49 @@
 				{
 					"game_id": "ssf"
 				}
+			],
+			"cover_image": "/images/arcadecovers/kashiwa-ts-cover.jpg",
+			"carousel_gallery": [
+				{
+					"gallery_image_link": "/images/arcadecovers/kashiwa-ts-carousel-1.jpg"
+				},
+				{
+					"gallery_image_link": "/images/arcadecovers/kashiwa-ts-carousel-2.jpg"
+				},
+				{
+					"gallery_image_link": "/images/arcadecovers/kashiwa-ts-carousel-3.jpg"
+				},
+				{
+					"gallery_image_link": "/images/arcadecovers/kashiwa-ts-carousel-4.jpg"
+				},
+				{
+					"gallery_image_link": "/images/arcadecovers/kashiwa-ts-carousel-5.jpg"
+				},
+				{
+					"gallery_image_link": "/images/arcadecovers/kashiwa-ts-carousel-6.jpg"
+				},
+				{
+					"gallery_image_link": "/images/arcadecovers/kashiwa-ts-carousel-7.jpg"
+				},
+				{
+					"gallery_image_link": "/images/arcadecovers/kashiwa-ts-carousel-8.jpg"
+				},
+				{
+					"gallery_image_link": "/images/arcadecovers/kashiwa-ts-carousel-9.jpg"
+				},
+				{
+					"gallery_image_link": "/images/arcadecovers/kashiwa-ts-carousel-10.jpg"
+				}
 			]
 		},
 		{
 			"arcade_name": "Shinuku Sportsland",
 			"arcade_id": "shinjuku-sportsland",
 			"description": "Shinuku Sportsland's Description about the place here and here and here and here.",
-			"gmaps_link": "https://google.com/",
+			"gmaps_link": "https://google.com/shinjuku-sportsland",
 			"latt": 35.6932072,
 			"long": 139.70187139999996,
-			"arcade_img_full": "/images/arcadecovers/bikado_full.png",
+			"arcade_img_full": "/images/arcadecovers/shinjuku-sportsland_full.png",
 			"arcade_img_thumbnail": "/images/arcadecovers/shinjuku_sportsland_thumbnail.jpg",
 			"available_games": [
 				{
@@ -120,6 +219,39 @@
 				},
 				{
 					"game_id": "ggax"
+				}
+			],
+			"cover_image": "/images/arcadecovers/shinjuku-sportsland-cover.jpg",
+			"carousel_gallery": [
+				{
+					"gallery_image_link": "/images/arcadecovers/shinjuku-sportsland-carousel-1.jpg"
+				},
+				{
+					"gallery_image_link": "/images/arcadecovers/shinjuku-sportsland-carousel-2.jpg"
+				},
+				{
+					"gallery_image_link": "/images/arcadecovers/shinjuku-sportsland-carousel-3.jpg"
+				},
+				{
+					"gallery_image_link": "/images/arcadecovers/shinjuku-sportsland-carousel-4.jpg"
+				},
+				{
+					"gallery_image_link": "/images/arcadecovers/shinjuku-sportsland-carousel-5.jpg"
+				},
+				{
+					"gallery_image_link": "/images/arcadecovers/shinjuku-sportsland-carousel-6.jpg"
+				},
+				{
+					"gallery_image_link": "/images/arcadecovers/shinjuku-sportsland-carousel-7.jpg"
+				},
+				{
+					"gallery_image_link": "/images/arcadecovers/shinjuku-sportsland-carousel-8.jpg"
+				},
+				{
+					"gallery_image_link": "/images/arcadecovers/shinjuku-sportsland-carousel-9.jpg"
+				},
+				{
+					"gallery_image_link": "/images/arcadecovers/shinjuku-sportsland-carousel-10.jpg"
 				}
 			]
 		}

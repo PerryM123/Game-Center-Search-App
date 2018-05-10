@@ -61,10 +61,11 @@ class ArcadeResults extends Component {
               /*
               * React Question:
               * Maybe I'm not doing BEM correctly... It seems that my class names are becoming extremely long...
+              * Is this normal?
               */
               }
-                <a className="contents--arcade-results__buttons-area__button contents--arcade-results__buttons-area__button--google-maps" href={item.gmaps_link}> Google Maps </a>
-                <a className="contents--arcade-results__buttons-area__button contents--arcade-results__buttons-area__button--read-more" href={item.gmaps_link}> Read More </a>
+                <a className="contents--arcade-results__button contents--arcade-results__button--google-maps" href={item.gmaps_link}> Google Maps </a>
+                <a className="contents--arcade-results__button contents--arcade-results__button--read-more" href={item.gmaps_link}> Read More </a>
               </div>
             </div>
           </div>

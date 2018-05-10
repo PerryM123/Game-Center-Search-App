@@ -14,6 +14,9 @@ import './../scss/swiper.scss'; // Double check to see if this is the correct wa
 * and
 * 2) making a component to have that logic (maybe this leads into smart components)
 *
+* Does it become:
+* If it needs to be rendered, it should be it's own component?
+* If it is ONLY logic, then it should be a function?
 */
 
 class ArcadeResults extends Component {
@@ -30,20 +33,12 @@ class ArcadeResults extends Component {
       this.setState({
         arcadeList: results.data.arcades
       });
-      console.log("arcade data: ");
-      console.log(results);
       if ( results.data.arcades ) {
         const arcadeMatchList = results.data.arcades.filter((arcade) => {
           return arcade.available_games.some((game) => {
             return (game.game_id === this.props.match.params.id)
           })
         });
-
-        console.log("arcadeMatchList");
-        console.log(arcadeMatchList);
-
-        console.log("arcadeList");
-        console.log(this.state.arcadeList);
 
         this.setState({
           arcadeList: arcadeMatchList
@@ -54,7 +49,6 @@ class ArcadeResults extends Component {
 
   arcadeRenderer() {
     const swiperParams = {
-      slidesPerView: 3,
       spaceBetween: 30,
       freeMode: true,
       pagination: {
@@ -64,42 +58,62 @@ class ArcadeResults extends Component {
       navigation: {
         nextEl: '.swiper-button-next',
         prevEl: '.swiper-button-prev'
-      }
+      },
+      /*breakpoints: {
+        1024: {
+          slidesPerView: 4,
+          spaceBetween: 40
+        },
+        768: {
+          slidesPerView: 3,
+          spaceBetween: 30
+        },
+        640: {
+          slidesPerView: 2,
+          spaceBetween: 20
+        },
+        320: {
+          slidesPerView: 2,
+          spaceBetween: 10
+        }
+      }*/
     };
 
     const cover_image = "",
           SOME_GMAPS_LINK_HERE = "",
           SOME_READMORE_LINK_HERE = "";
     return (
-      this.state.arcadeList.map((item,i)=>{
+      this.state.arcadeList.map((arcadeItem,arcadeKey)=>{
         return (
-          <div key={i} className="contents--arcade-results__arcade-info">
-            <h2>{item.arcade_name}</h2>
-            {/*<img className="contents--arcade-results__cover-image" src={item.cover_image} />*/}
-            <div className="contents--arcade-results__cover-image" style={{backgroundImage: "url(" + item.cover_image + ")"}}></div>
+          <div key={arcadeKey} className="contents--arcade-results__arcade-info">
+            <h2>{arcadeItem.arcade_name}</h2>
+            <div className="contents--arcade-results__cover-image"
+                 style={{backgroundImage: "url(" + arcadeItem.cover_image + ")"}}></div>
             <div className="contents--arcade-results__image-carousel">
               <Swiper {...swiperParams}>
               {/*
               * FIXME:
               * Images seem to be too small when using a small device since the images' width
               * seem to be set as percentages (???)
+              *
+              * Is there a way to set the height of the container/image ONLY?
+              *
+              * It might be best to set this in it's own responsive container so that the
+              * width isn't always effecting it?
               */}
-                <div>
-                  <img className="contents--arcade-results__image-carousel--images" src={item.arcade_img_thumbnail} />
-                </div>
-                <div>
-                  <img className="contents--arcade-results__image-carousel--images" src={item.arcade_img_thumbnail} />
-                </div>
-                <div>
-                  <img className="contents--arcade-results__image-carousel--images" src={item.arcade_img_thumbnail} />
-                </div>
-                <div>
-                  <img className="contents--arcade-results__image-carousel--images" src={item.arcade_img_thumbnail} />
-                </div>
+              {
+                arcadeItem.carousel_gallery.map((galleryItem, galleryKey) => {
+                  return (
+                    <div key={galleryKey}>
+                      <img className="contents--arcade-results__image-carousel--images" src={galleryItem.gallery_image_link} alt={arcadeItem.arcade_name + " " + galleryKey } />
+                    </div>
+                  )
+                })
+              }
               </Swiper>
             </div>
             <div>
-              <p>{item.description}</p>
+              <p>{arcadeItem.description}</p>
               <div className="contents--arcade-results__buttons-area">
               {
               /*
@@ -108,8 +122,8 @@ class ArcadeResults extends Component {
               * Is this normal?
               */
               }
-                <a className="contents--arcade-results__button contents--arcade-results__button--google-maps" href={item.gmaps_link}> Google Maps </a>
-                <a className="contents--arcade-results__button contents--arcade-results__button--read-more" href={item.gmaps_link}> Read More </a>
+                <a className="contents--arcade-results__button contents--arcade-results__button--google-maps" href={arcadeItem.gmaps_link}> Google Maps </a>
+                <a className="contents--arcade-results__button contents--arcade-results__button--read-more" href={arcadeItem.gmaps_link}> Read More </a>
               </div>
             </div>
           </div>
@@ -125,7 +139,6 @@ class ArcadeResults extends Component {
       </div>
     )
   }
-
 
   render() {
     const ourGame = this.props.match.params.id; // game in parameter

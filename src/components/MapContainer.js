@@ -123,7 +123,7 @@ export class MapContainer extends Component {
           <img className="info-window__thumbnail" src={selectedArcade.arcade_img_thumbnail} />
           <p>{selectedArcade.description}</p>
           <div className="info-window__button-area">
-            <a href={"/" + selectedArcade.arcade_id}> Arcade link </a>
+            <a href={"/arcade-info/" + selectedArcade.arcade_id}> Arcade link </a>
             <a href={selectedArcade.gmaps_link}>Google Maps Direct Link</a>
           </div>
         </div>

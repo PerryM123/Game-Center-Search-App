@@ -60,6 +60,12 @@ class ArcadeResults extends Component {
         nextEl: '.swiper-button-next',
         prevEl: '.swiper-button-prev'
       },
+      breakpoints: {
+        480: {
+          slidesPerView: 3,
+          spaceBetween: 20
+        }
+      }
       /*breakpoints: {
         1024: {
           slidesPerView: 4,

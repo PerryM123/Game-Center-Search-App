@@ -6,6 +6,7 @@ import LiveMap from './LiveMap';
 import AboutUs from './AboutUs';
 import Games from './Games';
 import ContactUs from './ContactUs';
+import Arcade from './Arcade';
 import PageNotFound from './PageNotFound';
 
 /*
@@ -33,6 +34,7 @@ class Main extends Component {
           <Route path='/search-game/' component={Games}/>
           <Route path='/about-us/' component={AboutUs}/>
           <Route path='/contact-us/' component={ContactUs}/>
+          <Route path='/arcade-info/' component={Arcade}/>
           <Route component={PageNotFound}/>
         </Switch>
       </div>

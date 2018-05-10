@@ -6,12 +6,10 @@ import ArcadeResults from './ArcadeResults';
 class Games extends Component {
   render() {
     return (
-      <div>
-        <Switch>
-          <Route exact path='/search-game' component={SearchGame}/>
-          <Route path='/search-game/:id' component={ArcadeResults} />
-        </Switch>
-      </div>
+      <Switch>
+        <Route exact path='/search-game' component={SearchGame}/>
+        <Route path='/search-game/:id' component={ArcadeResults} />
+      </Switch>
     );
   }
 }

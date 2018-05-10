@@ -1,14 +1,14 @@
 {
 	"arcades": [
 		{
-			"arcade_name": "Mikado",
-			"arcade_id": "mikado",
-			"description": "Mikado's Description about the place here and here and here and here.",
+			"arcade_name": "Bikado",
+			"arcade_id": "bikado",
+			"description": "Bikado's Description about the place here and here and here and here.",
 			"gmaps_link": "https://google.com/",
 			"latt": 35.7127351,
 			"long": 139.7034548,
-			"arcade_img_full": "/images/arcadecovers/mikado_full.png",
-			"arcade_img_thumbnail": "/images/arcadecovers/mikado_thumbnail.png",
+			"arcade_img_full": "/images/arcadecovers/bikado_full.png",
+			"arcade_img_thumbnail": "/images/arcadecovers/bikado_thumbnail.png",
 			"available_games": [
 				{
 					"game_id": "sf2st"
@@ -17,37 +17,37 @@
 					"game_id": "mbacc"
 				}
 			],
-			"cover_image": "/images/arcadecovers/mikado-cover.jpg",
+			"cover_image": "/images/arcadecovers/bikado-cover.jpg",
 			"carousel_gallery": [
 				{
-					"gallery_image_link": "/images/arcadecovers/mikado-carousel-1.jpg"
+					"gallery_image_link": "/images/arcadecovers/bikado-carousel-1.jpg"
 				},
 				{
-					"gallery_image_link": "/images/arcadecovers/mikado-carousel-2.jpg"
+					"gallery_image_link": "/images/arcadecovers/bikado-carousel-2.jpg"
 				},
 				{
-					"gallery_image_link": "/images/arcadecovers/mikado-carousel-3.jpg"
+					"gallery_image_link": "/images/arcadecovers/bikado-carousel-3.jpg"
 				},
 				{
-					"gallery_image_link": "/images/arcadecovers/mikado-carousel-4.jpg"
+					"gallery_image_link": "/images/arcadecovers/bikado-carousel-4.jpg"
 				},
 				{
-					"gallery_image_link": "/images/arcadecovers/mikado-carousel-5.jpg"
+					"gallery_image_link": "/images/arcadecovers/bikado-carousel-5.jpg"
 				},
 				{
-					"gallery_image_link": "/images/arcadecovers/mikado-carousel-6.jpg"
+					"gallery_image_link": "/images/arcadecovers/bikado-carousel-6.jpg"
 				},
 				{
-					"gallery_image_link": "/images/arcadecovers/mikado-carousel-7.jpg"
+					"gallery_image_link": "/images/arcadecovers/bikado-carousel-7.jpg"
 				},
 				{
-					"gallery_image_link": "/images/arcadecovers/mikado-carousel-8.jpg"
+					"gallery_image_link": "/images/arcadecovers/bikado-carousel-8.jpg"
 				},
 				{
-					"gallery_image_link": "/images/arcadecovers/mikado-carousel-9.jpg"
+					"gallery_image_link": "/images/arcadecovers/bikado-carousel-9.jpg"
 				},
 				{
-					"gallery_image_link": "/images/arcadecovers/mikado-carousel-10.jpg"
+					"gallery_image_link": "/images/arcadecovers/bikado-carousel-10.jpg"
 				}
 			]
 		},
@@ -58,7 +58,7 @@
 			"gmaps_link": "https://google.com/",
 			"latt": 35.699024,
 			"long": 139.771062,
-			"arcade_img_full": "/images/arcadecovers/mikado_full.png",
+			"arcade_img_full": "/images/arcadecovers/bikado_full.png",
 			"arcade_img_thumbnail": "/images/arcadecovers/hey_thumbnail.jpg",
 			"available_games": [
 				{
@@ -76,7 +76,7 @@
 			"gmaps_link": "https://google.com/",
 			"latt": 35.722462,
 			"long": 140.04359999999997,
-			"arcade_img_full": "/images/arcadecovers/mikado_full.png",
+			"arcade_img_full": "/images/arcadecovers/bikado_full.png",
 			"arcade_img_thumbnail": "/images/arcadecovers/fun_thumbnail.jpg",
 			"available_games": [
 				{
@@ -94,7 +94,7 @@
 			"gmaps_link": "https://google.com/",
 			"latt": 35.861365,
 			"long": 139.97267,
-			"arcade_img_full": "/images/arcadecovers/mikado_full.png",
+			"arcade_img_full": "/images/arcadecovers/bikado_full.png",
 			"arcade_img_thumbnail": "/images/arcadecovers/kashiwa_ts_thumbnail.jpg",
 			"available_games": [
 				{
@@ -112,7 +112,7 @@
 			"gmaps_link": "https://google.com/",
 			"latt": 35.6932072,
 			"long": 139.70187139999996,
-			"arcade_img_full": "/images/arcadecovers/mikado_full.png",
+			"arcade_img_full": "/images/arcadecovers/bikado_full.png",
 			"arcade_img_thumbnail": "/images/arcadecovers/shinjuku_sportsland_thumbnail.jpg",
 			"available_games": [
 				{

@@ -40,29 +40,34 @@ class ArcadeResults extends Component {
   arcadeRenderer() {
     const cover_image = "",
           SOME_GMAPS_LINK_HERE = "",
-          SOME_READMORE_LINK_HERE = ""; 
+          SOME_READMORE_LINK_HERE = "";
     return (
       this.state.arcadeList.map((item,i)=>{
-        return ( 
-          <div key={i}>{i + 1}) {item.arcade_name}
-            <div className="contents--arcade-results__arcade-info">
-              <img className="contents--arcade-results__cover-image" src={cover_image} />
-              <div className="contents--arcade-results__image-carousel">
-                <img className="contents--arcade-results__image-carousel--images" src={cover_image} />
-                <img className="contents--arcade-results__image-carousel--images" src={cover_image} />
-                <img className="contents--arcade-results__image-carousel--images" src={cover_image} />
-                  <img className="contents--arcade-results__image-carousel--images" src={cover_image} />
-                </div>
-                <div>
-                  <h2>{/*Arcade title here*/}</h2>
-                  <p>{/*Arcade title here*/}</p>
-                  <div className="contents--arcade-results__buttons-area">
-                    <a className="contents--arcade-results__buttons-area--google-maps" href={SOME_GMAPS_LINK_HERE} />
-                    <a className="contents--arcade-results__buttons-area--read-more" href={SOME_READMORE_LINK_HERE} />
-                  </div>
-                </div>
-              </div> 
+        return (
+          <div key={i} className="contents--arcade-results__arcade-info">
+            <h2>{item.arcade_name}</h2>
+            {/*<img className="contents--arcade-results__cover-image" src={item.cover_image} />*/}
+            <div className="contents--arcade-results__cover-image" style={{backgroundImage: "url(" + item.cover_image + ")"}}></div>
+            <div className="contents--arcade-results__image-carousel">
+              <img className="contents--arcade-results__image-carousel--images" src={item.arcade_img_thumbnail} />
+              <img className="contents--arcade-results__image-carousel--images" src={item.arcade_img_thumbnail} />
+              <img className="contents--arcade-results__image-carousel--images" src={item.arcade_img_thumbnail} />
+              <img className="contents--arcade-results__image-carousel--images" src={item.arcade_img_thumbnail} />
             </div>
+            <div>
+              <p>{item.description}</p>
+              <div className="contents--arcade-results__buttons-area">
+              {
+              /*
+              * React Question:
+              * Maybe I'm not doing BEM correctly... It seems that my class names are becoming extremely long...
+              */
+              }
+                <a className="contents--arcade-results__buttons-area__button contents--arcade-results__buttons-area__button--google-maps" href={item.gmaps_link}> Google Maps </a>
+                <a className="contents--arcade-results__buttons-area__button contents--arcade-results__buttons-area__button--read-more" href={item.gmaps_link}> Read More </a>
+              </div>
+            </div>
+          </div>
         )
       })
     );
@@ -83,7 +88,6 @@ class ArcadeResults extends Component {
     return (
       <div className="contents contents--arcade-results">
         <h2>Arcade Search: {ourGame}</h2>
-        <h3>Hmm: 
         {
           /*
           * React Question:
@@ -94,7 +98,6 @@ class ArcadeResults extends Component {
           */
           (this.state.arcadeList) ? this.arcadeRenderer() : this.arcadeNoRenderer()
         }
-        </h3>
         <p></p>
       </div>
     );

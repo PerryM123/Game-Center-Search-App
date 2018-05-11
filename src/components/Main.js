@@ -10,14 +10,20 @@ import Arcade from './Arcade';
 import PageNotFound from './PageNotFound';
 
 /*
-* React Question:
+* React Question 1:
 * When should I use:
-1)
-class Main extends Component {
+* 1)
+* class Main extends Component {
+*
+* 2)
+* const Main = () => (
+*/
 
-2)
-const Main = () => (
-
+/*
+* React Question 2:
+* I do not know when I should be using props...
+* Maybe use it for API calls?
+* I have to figure out when the best time to use props...
 */
 class Main extends Component {
   constructor(props){

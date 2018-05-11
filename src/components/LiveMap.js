@@ -3,6 +3,7 @@ import MapContainer from './MapContainer';
 
 class LiveMap extends Component {
   constructor(props) {
+    console.log("LiveMap: constructor");
     super(props);
     this.state = {
       windowHeight: window.innerHeight
@@ -10,9 +11,12 @@ class LiveMap extends Component {
 
 
   }
-  componentDidMount() {
-    console.log("this.cool");
-    console.log(this.cool.innerHeight);
+  componentWillMount() {
+    console.log("LiveMap: componentDidMount");
+    const node = this.refs.clientHeight;
+    console.log("node");
+    console.log(node);
+
   }
   render() {
     return (

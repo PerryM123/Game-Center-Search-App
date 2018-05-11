@@ -20,9 +20,27 @@ const Main = () => (
 
 */
 class Main extends Component {
+  constructor(props){
+    super(props);
+    this.state = {
+      counter: 0
+    }
+    this.onClickHandler = this.onClickHandler.bind(this);
+  }
+  onClickHandler() {
+    this.setState({
+      counter: this.state.counter + 1
+    });
+  }
+  getCounter() {
+    return this.state.counter;
+  }
   render() {
     return (
       <div>
+        <button id="hello" onClick={this.onClickHandler}>
+          Press Me: <span className="what">{ this.state.counter }</span>
+        </button>
         <Switch>
         {/*
           ReactJS Advice:

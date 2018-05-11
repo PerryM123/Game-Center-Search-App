@@ -44,9 +44,10 @@ class Main extends Component {
   render() {
     return (
       <div>
-        <button id="hello" onClick={this.onClickHandler}>
+        {/* Testing with Enzyme below!!!*/}
+        {/*<button id="hello" onClick={this.onClickHandler}>
           Press Me: <span className="what">{ this.state.counter }</span>
-        </button>
+        </button>*/}
         <Switch>
         {/*
           ReactJS Advice:

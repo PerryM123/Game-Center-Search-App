@@ -5,7 +5,6 @@ import axios from 'axios';
 export class MapContainer extends Component {
   constructor(props) {
     super(props);
-    this.onMarkerClick = this.onMarkerClick.bind(this);
     this.state = {
       showingInfoWindow: false,
       activeMarker: {},
@@ -14,6 +13,7 @@ export class MapContainer extends Component {
       arcadeList: [],
       selectedArcade: ""
     };
+    this.onMarkerClick = this.onMarkerClick.bind(this);
   }
   componentDidMount() {
     console.log("componentDidMount");
@@ -26,6 +26,15 @@ export class MapContainer extends Component {
   }
   componentWillMount() {
     console.log("componentWillMount");
+    // const screenHeight = window.innerHeight;
+    // const titleHeight = document.getElementById('contents--live-map__main-title').offsetHeight;
+    // const screenPadding = document.getElementById('.contents--live-map').clientHeight;
+    // console.log("screenHeight");
+    // console.log(screenHeight);
+    // console.log(titleHeight);
+    // console.log("titleHeight");
+    // console.log(screenPadding);
+    // console.log("screenPadding");
   }
   findSelectedArcade() {
     console.log("~~~~~~~~~~~~~~~findSelectedArcade()~~~~~~~~~~~~~~~~~~~~");

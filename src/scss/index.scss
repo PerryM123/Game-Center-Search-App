@@ -31,8 +31,8 @@ body {
 	&--arcade-results {
 		border: 5px solid yellow;
 		&__arcade-info {
-      border-bottom: 5px solid green;
-      margin: 0 0 40px;
+			border-bottom: 5px solid green;
+			margin: 0 0 40px;
 		}
 		&__cover-image {
 			height: 200px;
@@ -45,8 +45,8 @@ body {
 
 		}
 		&__carousel-images {
-				height: 100px;
-        background-size: contain;
+			height: 100px;
+        	background-size: contain;
 			}
 		&__buttons-area {
 			margin: 0 0 40px;
@@ -76,11 +76,17 @@ body {
 		border: 5px solid blue;
 	}
 	&--live-map {
+		height: 100vh;
 		border: 5px solid red;
+		padding: 20px 0 0;
+		&__main-title {
+			text-align: center;
+		    margin: 0 0 20px;
+		}
 		.the-map {
           position: relative;
-          height: 500px;
-          margin: 0px 0px 40px;
+          width: 100%;
+          height: 552px;
           .info-window {
           	&__title {
           		text-align: center;

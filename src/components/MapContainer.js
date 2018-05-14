@@ -183,7 +183,8 @@ export class MapContainer extends Component {
           centerAroundCurrentLocation
           onClick={this.onMapClicked}
           google={this.props.google}
-          zoom={14}>
+          zoom={14}
+          gestureHandling='greedy'>
           { this.state.currentLocation ? this.showCurrPos(google) : <p>nothingggg</p> }
           { mapMarkers }
           { infoBoxes }

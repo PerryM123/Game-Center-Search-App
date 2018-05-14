@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import { Switch, Route } from 'react-router-dom'
+import { Switch, Route, Redirect } from 'react-router-dom'
 import ArcadePage from './ArcadePage';
+import FindMenu from './FindMenu';
 
 class Arcade extends Component {
   render() {
@@ -19,6 +20,7 @@ class Arcade extends Component {
         */}
 
         {/*<Route exact path='/arcade-info/' component={Home}/>*/}
+          <Redirect exact from="/arcade-info/" to="/find-menu/" />
         <Route path='/arcade-info/:arcade_id' component={ArcadePage} />
       </Switch>
     );

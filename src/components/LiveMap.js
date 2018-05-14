@@ -6,30 +6,33 @@ class LiveMap extends Component {
     console.log("LiveMap: constructor");
     super(props);
     this.state = {
-      windowHeight: window.innerHeight
+      mapHeight: ""
     }
 
 
   }
   componentWillMount() {
     console.log("LiveMap: componentDidMount");
-    const node = this.refs.clientHeight;
-    console.log("node");
-    console.log(node);
-
+  }
+  componentDidMount() {
+    console.log("this.div.clientHeight: " + this.div.clientHeight);
+    console.log("window.innerHeight: " + window.innerHeight);
+    console.log("this.h2.clientHeight: " + this.h2.clientHeight);
+    this.setState({mapHeight: window.innerHeight - this.h2.clientHeight});
   }
   render() {
     return (
-      <div className="contents contents--live-map" ref="cool">
+      <div ref={ div => { this.div = div; } } className="contents contents--live-map">
       {
         console.log("this.elemHeight")
       }
       {
         console.log(this.elemHeight)
       }
-        <h2 className="contents--live-map__main-title">Livemap</h2>
+    
+        <h2 ref={ h2 => { this.h2 = h2; } } className="contents--live-map__main-title">Livemap</h2>
         {/*<Maps />*/}
-        <MapContainer />
+        <MapContainer mapHeight={this.state.mapHeight + 'px'}/>
       </div>
     );
   }

@@ -1,17 +1,25 @@
 import React, { Component } from "react";
 import { Map, InfoWindow, Marker, GoogleApiWrapper } from "google-maps-react";
 import axios from 'axios';
+import PropTypes from 'prop-types';
 
 export class MapContainer extends Component {
   constructor(props) {
     super(props);
     this.state = {
       showingInfoWindow: false,
-      activeMarker: {},
-      selectedPlace: {},
-      currentLocation: {},
-      arcadeList: [],
-      selectedArcade: ""
+      /*
+      * React Questions
+      * How do I set default for states? Is this appropriate? If not it runs an error.
+      * Or should these be props? But they dynamic and may change(??)
+      *
+      * I still don't know when to use props...
+      */
+      activeMarker: {"":""},
+      selectedPlace: {"":""},
+      currentLocation: {"":""},
+      arcadeList: [""],
+      selectedArcade: "default"
     };
     this.onMarkerClick = this.onMarkerClick.bind(this);
   }
@@ -26,15 +34,6 @@ export class MapContainer extends Component {
   }
   componentWillMount() {
     console.log("componentWillMount");
-    // const screenHeight = window.innerHeight;
-    // const titleHeight = document.getElementById('contents--live-map__main-title').offsetHeight;
-    // const screenPadding = document.getElementById('.contents--live-map').clientHeight;
-    // console.log("screenHeight");
-    // console.log(screenHeight);
-    // console.log(titleHeight);
-    // console.log("titleHeight");
-    // console.log(screenPadding);
-    // console.log("screenPadding");
   }
   findSelectedArcade() {
     console.log("~~~~~~~~~~~~~~~findSelectedArcade()~~~~~~~~~~~~~~~~~~~~");
@@ -129,7 +128,7 @@ export class MapContainer extends Component {
       >
         <div className="info-window">
           <h2 className="info-window__title">{this.state.selectedPlace.name}</h2>
-          <img className="info-window__thumbnail" src={selectedArcade.arcade_img_thumbnail} />
+          <div className="info-window__thumbnail"><img src={selectedArcade.arcade_img_thumbnail} /></div>
           <p>{selectedArcade.description}</p>
           <div className="info-window__button-area">
             <a href={"/arcade-info/" + selectedArcade.arcade_id}> Arcade link </a>
@@ -176,7 +175,7 @@ export class MapContainer extends Component {
     // console.log("addMarker: arcadeList"); // debugging
     // console.log(arcadeList); // debugging
     return (
-      <div className="the-map">
+      <div className="the-map" style={{height: this.props.mapHeight}}>
         <div className="herere">
         </div>
         <Map
@@ -198,3 +197,11 @@ export default GoogleApiWrapper({
   apiKey: "AIzaSyAyesbQMyKVVbBgKVi2g6VX7mop2z96jBo",
   v: "3.30"
 })(MapContainer);
+
+/*
+* React Question:
+* How can I put this in the top of the component?
+*/
+MapContainer.propTypes = {
+  mapHeight: PropTypes.number.isRequired
+};

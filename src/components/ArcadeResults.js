@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import Swiper from 'react-id-swiper';
+import loading_logo from './../images/loading_icon.png';
 import './../scss/swiper.scss'; // Double check to see if this is the correct way to use swiper' scss
 
 /*
@@ -24,10 +25,15 @@ class ArcadeResults extends Component {
     super(props);
     this.state = {
       arcadeData: "",
-      gamesList: [""]
+      gamesList: [""],
+      loading: false,
+      arcadeList: [""]
     }
   }
   componentDidMount() {
+    this.setState({
+      loading: true
+    });
     axios.get('/arcadeData.json')
      .then((results) => {
       this.setState({
@@ -41,7 +47,8 @@ class ArcadeResults extends Component {
         });
 
         this.setState({
-          arcadeList: arcadeMatchList
+          arcadeList: arcadeMatchList,
+          loading: false
         });
       }
     });
@@ -82,27 +89,18 @@ class ArcadeResults extends Component {
             ></div>
             <ul className="contents--arcade-results__carousel-container">
               <Swiper {...swiperParams}>
-              {/*
-              * FIXME:
-              * Images seem to be too small when using a small device since the images' width
-              * seem to be set as percentages (???)
-              *
-              * Is there a way to set the height of the container/image ONLY?
-              *
-              * It might be best to set this in it's own responsive container so that the
-              * width isn't always effecting it?
-              */}
               {
-                arcadeItem.carousel_gallery.map((galleryItem, galleryKey) => {
-                  return (
-                    <li className="contents--arcade-results__carousel-images" key={galleryKey}
-                    style={{
-                      background: "url(" + galleryItem.gallery_image_link + ") no-repeat",
-                      backgroundSize: "cover",
-                      backgroundPosition: "center"
-                    }}></li>
-                  )
-                })
+                arcadeItem.carousel_gallery &&
+                  arcadeItem.carousel_gallery.map((galleryItem, galleryKey) => {
+                    return (
+                      <li className="contents--arcade-results__carousel-images" key={galleryKey}
+                      style={{
+                        background: "url(" + galleryItem.gallery_image_link + ") no-repeat",
+                        backgroundSize: "cover",
+                        backgroundPosition: "center"
+                      }}></li>
+                    )
+                  })
               }
               </Swiper>
             </ul>
@@ -126,14 +124,6 @@ class ArcadeResults extends Component {
     );
   }
 
-  arcadeNoRenderer() {
-    return (
-      <div>
-        NO ARCADES MATCHED!
-      </div>
-    )
-  }
-
   render() {
     const ourGame = this.props.match.params.id; // game in parameter
     // arrNAme.find(ourGame)
@@ -149,7 +139,7 @@ class ArcadeResults extends Component {
           * ANSWER: To improve readibility, it is recommended to make only a simple one line.
           *         Separate functions. Don't to do everything in render()
           */
-          (this.state.arcadeList) ? this.arcadeRenderer() : this.arcadeNoRenderer()
+          (this.state.loading) ? <div className="loading_now"><img src={loading_logo} alt="loading-icon" /></div> : this.arcadeRenderer()
         }
         <p></p>
       </div>

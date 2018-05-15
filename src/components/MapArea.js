@@ -3,7 +3,7 @@ import { Map, InfoWindow, Marker, GoogleApiWrapper } from "google-maps-react";
 import axios from 'axios';
 import PropTypes from 'prop-types';
 
-export class MapContainer extends Component {
+export class MapArea extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -187,7 +187,6 @@ export class MapContainer extends Component {
           { this.state.currentLocation ? this.showCurrPos(google) : <p>nothingggg</p> }
           { mapMarkers }
           { infoBoxes }
-      
         </Map>
       </div>
     );
@@ -196,12 +195,12 @@ export class MapContainer extends Component {
 export default GoogleApiWrapper({
   apiKey: "AIzaSyDekIZB6RyNrDvG73ikLoK2Nq8X8Urn8B4",
   v: "3.30"
-})(MapContainer);
+})(MapArea);
 
 /*
 * React Question:
 * How can I put this in the top of the component?
 */
-MapContainer.propTypes = {
+MapArea.propTypes = {
   mapHeight: PropTypes.number.isRequired
 };

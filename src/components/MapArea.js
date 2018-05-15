@@ -193,7 +193,7 @@ export class MapArea extends Component {
   }
 }
 export default GoogleApiWrapper({
-  apiKey: "AIzaSyDekIZB6RyNrDvG73ikLoK2Nq8X8Urn8B4",
+  apiKey: "API_KEY_HERE",
   v: "3.30"
 })(MapArea);
 

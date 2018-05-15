@@ -23,15 +23,9 @@ export class MapArea extends Component {
       selectedArcade: "default"
     };
     this.onMarkerClick = this.onMarkerClick.bind(this);
-    console.log("config:");
-    console.log(configFile);
-    console.log("config.GMAPS_API_KEY:");
-    console.log(configFile.GMAPS_API_KEY);
-    console.log("configFile");
-    console.log(configFile);
   }
   componentDidMount() {
-    console.log("componentDidMount");
+    console.log("MapArea: componentDidMount");
     axios.get('/arcadeData.json')
      .then((results) => {
       this.setState({
@@ -40,17 +34,17 @@ export class MapArea extends Component {
     });
   }
   componentWillMount() {
-    console.log("componentWillMount");
+    console.log("MapArea: componentWillMount");
   }
   findSelectedArcade() {
-    console.log("~~~~~~~~~~~~~~~findSelectedArcade()~~~~~~~~~~~~~~~~~~~~");
+    console.log("MapArea: findSelectedArcade()");
     const filtered = this.state.arcadeList.filter( item => this.state.selectedPlace.name === item.arcade_name );
     console.log("filtered"); // debug
     console.log(filtered); // debug
     return filtered;
   }
   onMarkerClick(props, marker, e) {
-    console.log("~~~~~~~~~~~~~~~onMarkerClick()~~~~~~~~~~~~~~~~~~~~");
+    console.log("MapArea: onMarkerClick()");
     /*
     * FIXME:
     * Calling setState twice in a row doesn't seem correct here... Find a better solution
@@ -64,8 +58,6 @@ export class MapArea extends Component {
     this.setState({
       selectedArcade: this.findSelectedArcade()
     });
-    console.log("onMarkerClick: selectedArcade");
-    console.log(this.state.selectedArcade);
   }
   /*
   * React Question:
@@ -80,7 +72,7 @@ export class MapArea extends Component {
       });
   };
   showCurrPos(google) {
-    console.log("~~~~~~~~~~~~~~~showCurrPos()~~~~~~~~~~~~~~~~~~~~");
+    console.log("MapArea: showCurrPos()");
     return (
       <Marker
         onClick={this.onMarkerClick}
@@ -99,7 +91,7 @@ export class MapArea extends Component {
     )
   }
   addMarkers(google) {
-    console.log("~~~~~~~~~~~~~~~addMarkers()~~~~~~~~~~~~~~~~~~~~");
+    console.log("MapArea: addMarkers()");
     const arcadeList = this.state.arcadeList;
     if (arcadeList) {
       const markers = arcadeList.map((data, index) => {
@@ -127,7 +119,6 @@ export class MapArea extends Component {
     console.log("addInfoWindows");
     const selectedArcade = this.state.selectedArcade[0];
     if (selectedArcade) {
-      console.log("YES!");
       return (
         <InfoWindow
         marker={this.state.activeMarker}
@@ -147,15 +138,13 @@ export class MapArea extends Component {
     }
   }
   render() {
-    console.log("~~~~~~~~~~~~~~~render()~~~~~~~~~~~~~~~~~~~~");
+    console.log("MapArea: render()");
     const google=window.google
     if (!this.props.google) {
       return <div>Loading...</div>;
     }
     const mapMarkers = this.addMarkers(google);
     const infoBoxes = this.addInfoWindows(google);
-    // console.log("markers2222"); // debugging
-    // console.log(mapMarkers); // debugging
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition((position) => {
         this.setState({
@@ -170,17 +159,10 @@ export class MapArea extends Component {
       alert("error");
     }
 
-    console.log("before");
     if ( this.state.selectedArcade ) {
       const selectedArcade = this.state.selectedArcade;
-      console.log("12selectedArcade:");
-      console.log(selectedArcade);
     }
     const arcadeList = this.state.arcadeList;
-    console.log("23arcadeList");
-    console.log(arcadeList);
-    // console.log("addMarker: arcadeList"); // debugging
-    // console.log(arcadeList); // debugging
     return (
       <div className="the-map" style={{height: this.props.mapHeight}}>
         <div className="herere">

@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Map, InfoWindow, Marker, GoogleApiWrapper } from "google-maps-react";
 import axios from 'axios';
 import PropTypes from 'prop-types';
+import configFile from './gmaps_api_key/config.json';
 
 export class MapArea extends Component {
   constructor(props) {
@@ -22,6 +23,12 @@ export class MapArea extends Component {
       selectedArcade: "default"
     };
     this.onMarkerClick = this.onMarkerClick.bind(this);
+    console.log("config:");
+    console.log(configFile);
+    console.log("config.GMAPS_API_KEY:");
+    console.log(configFile.GMAPS_API_KEY);
+    console.log("configFile");
+    console.log(configFile);
   }
   componentDidMount() {
     console.log("componentDidMount");
@@ -193,7 +200,7 @@ export class MapArea extends Component {
   }
 }
 export default GoogleApiWrapper({
-  apiKey: "API_KEY_HERE",
+  apiKey: configFile.GMAPS_API_KEY,
   v: "3.30"
 })(MapArea);
 

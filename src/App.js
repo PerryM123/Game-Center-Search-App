@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import Main from './components/Main'
+import { Link } from 'react-router-dom';
+import Main from './components/Main';
 import './scss/index.scss';
 
 class App extends Component {
@@ -7,17 +8,17 @@ class App extends Component {
     return (
       <div>
         <header className="contents contents--header">
-          <a href="/" className="someLogo">Logo</a>
+          <Link to="/" className="someLogo">Logo</Link>
           <ul>
-            <li><a href="#">Find Game</a></li>
-            <li><a href="#">Find Arcade</a></li>
-            <li><a href="#">About Us</a></li>
+            <li><Link to="#">Find Game</Link></li>
+            <li><Link to="#">Find Arcade</Link></li>
+            <li><Link to="#">About Us</Link></li>
           </ul>
         </header>
         <Main />
         <footer className="contents contents--footer">
           <p>This is a footer</p>
-          <a href="/">This is a footer LOGO</a>
+          <Link to="/">This is a footer LOGO</Link>
         </footer>
       </div>
     );

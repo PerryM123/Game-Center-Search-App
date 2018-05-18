@@ -160,6 +160,14 @@ footer {
   }
   &--splash-menu {
     border: 5px solid green;
+    text-align: center;
+    &__main-title {
+      font-size: 42px;
+      margin-bottom: 0;
+    }
+    &__text-content {
+      margin-top: 0;
+    }
   }
   &--search-game {
     border: 5px solid brown;

@@ -5,8 +5,8 @@ class SplashMenu extends Component {
   render() {
     return (
       <div className="contents contents--splash-menu">
-        <h2>Welcome!</h2>
-        <p>text text text text text text 
+        <h2 className="contents--splash-menu__main-title">Welcome!</h2>
+        <p className="contents--splash-menu__text-content">text text text text text text 
         text text text text </p>
         <Link to='/find-menu'>Go to next Screen</Link>
       </div>

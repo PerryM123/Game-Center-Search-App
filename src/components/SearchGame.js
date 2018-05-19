@@ -31,7 +31,7 @@ class SearchGame extends Component {
             <li key={num}>
               <Link to={link}>
                 <img src={data.game_img_thumbnail} alt={data.game_id}/>
-                <p>{data.game_name}</p>
+                <p className="contents--search-game__game-title">{data.game_name}</p>
               </Link>
             </li>
           );

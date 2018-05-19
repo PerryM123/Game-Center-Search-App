@@ -186,20 +186,30 @@ footer {
 			border-radius: 15px;
     }
   }
-  &--splash-contents {
-  	border: 5px solid yellow;
+  &--home-page-section {
   	padding: 40px 0;
   	&__section-title {
   		text-align: center;
   		margin-top: 0;
   	}
+
+  }
+  &--splash-contents {
+  	border: 5px solid yellow;
   	&__tools {
 			display: inline-block;
 			width: 33%;
 			padding: 0 40px;
+  		text-align: center;
 			&:hover {
-
+				color: blue;
+				.contents--splash-contents__icon {
+					transform: scale(1.2);
+				}
 			}
+  	}
+  	&__tools-link {
+  		color: red;
   	}
   	&__icon {
 			height: 90px;
@@ -208,25 +218,28 @@ footer {
 			text-align: center;
 			margin: 0 auto 20px;
 			border-radius: 50%;
+			transition: .3s all;
   	}
   	&__details-title {
-  		text-align: center;
   		margin: 5px 0;
   	}
   	&__text-content {
   		margin: 5px 0;
   	}
   }
+  &--explanation {
+  	border: 5px solid blue;
+  }
   &--search-game {
     border: 5px solid brown;
     &__loaded-games {
-			text-align: center;
 			padding: 0;
 	    li {
 	      display: inline-block;
-	      height: 300px;
-	      width: 200px;
+	      // height: 300px;
+	      width: 25%; // <--- 50% for mobile
 	      padding: 20px;
+     		vertical-align: top;
 	      &:hover {
 	      	img{
 	        	transform: scale(1.1);
@@ -237,6 +250,9 @@ footer {
       	transition: .2s all;
         width: 100%;
       }
+    }
+    &__game-title {
+    	text-align: center;
     }
     &__loading_now {
       img {

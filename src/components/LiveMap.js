@@ -8,8 +8,6 @@ class LiveMap extends Component {
     this.state = {
       mapHeight: ""
     }
-
-
   }
   componentWillMount() {
     console.log("LiveMap: componentDidMount");

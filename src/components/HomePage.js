@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Switch, Route } from 'react-router-dom'
 import SplashMenu from './SplashMenu';
+import Explanation from './Explanation';
 import SplashContents from './SplashContents';
 
 class HomePage extends Component {
@@ -12,6 +13,7 @@ class HomePage extends Component {
       <div>
         <SplashMenu />
         <SplashContents />
+        <Explanation />
       </div>
     );
   }

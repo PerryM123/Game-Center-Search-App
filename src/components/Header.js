@@ -6,6 +6,7 @@ class Header extends Component {
     return (
     <header className="contents contents--header">
         <Link to="/" className="someLogo">Logo</Link>
+        <div className="mobile-only">button</div>
         <ul>
           <li><Link to="/search-game/">Search By Game</Link></li>
           <li><Link to="/live-map/">Search By Map</Link></li>

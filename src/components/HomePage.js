@@ -8,12 +8,11 @@ class HomePage extends Component {
   render() {
     return (
       <div>
-      Hmmmm
-      <FontAwesome
-  name='spinner'
-  size='2x'
-  spin
-/>welp
+      {/*<FontAwesome
+        name='spinner'
+        size='2x'
+        spin
+      />*/}
         <SplashMenu />
         <SplashContents />
         <Explanation />

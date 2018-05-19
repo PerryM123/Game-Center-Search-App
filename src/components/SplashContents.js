@@ -13,7 +13,7 @@ class SplashContents extends Component {
         <h2 className="contents--home-page-section__section-title">Search Now!</h2>
         {/*Tool_1*/}
         <div className="contents--splash-contents__tools">
-          <Link to='/live-map/'>
+          <Link className="contents--splash-contents__tools-link" to='/live-map/'>
           {/*
           *BEM Question:
           *When trying to add css to the child of an element after the 
@@ -39,7 +39,7 @@ class SplashContents extends Component {
         {/*Tool_2 END*/}
         {/*Tool_3*/}
         <div className="contents--splash-contents__tools">
-          <Link to='/region/'>
+          <Link className="contents--splash-contents__tools-link" to='/region/'>
             <div className="contents--splash-contents__icon"></div>
             <h3 className="contents--splash-contents__details-title">Search By Region</h3>
             <p className="contents--splash-contents__text-content">syigsyig syigsyig syigsyig syigsyig syigsyig syigsyig syigsyig syigsyig </p>

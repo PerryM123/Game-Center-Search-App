@@ -74,10 +74,6 @@ class ArcadeResults extends Component {
         }
       }
     };
-
-    const cover_image = "",
-          SOME_GMAPS_LINK_HERE = "",
-          SOME_READMORE_LINK_HERE = "";
     return (
       this.state.arcadeList.map((arcadeItem,arcadeKey)=>{
         return (

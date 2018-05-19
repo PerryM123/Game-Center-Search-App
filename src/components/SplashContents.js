@@ -1,10 +1,7 @@
 import React, { Component } from 'react';
-import { Switch, Route, Link } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 class SplashContents extends Component {
-  constructor(props){
-    super(props);
-  }
   render() {
     return (
       /*

@@ -1,12 +1,9 @@
 import React, { Component } from 'react';
 import { Switch, Route, Redirect } from 'react-router-dom'
 import ArcadePage from './ArcadePage';
-import FindMenu from './FindMenu';
 
 class Arcade extends Component {
   render() {
-    const ourGame = this.props.match.params.arcade_id; // game in parameter
-
     return (
       <Switch>
         {/*

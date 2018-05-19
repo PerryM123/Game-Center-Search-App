@@ -126,7 +126,7 @@ export class MapArea extends Component {
       >
         <div className="info-window">
           <h2 className="info-window__title">{this.state.selectedPlace.name}</h2>
-          <div className="info-window__thumbnail"><img src={selectedArcade.arcade_img_thumbnail} /></div>
+          <div className="info-window__thumbnail"><img src={selectedArcade.arcade_img_thumbnail} alt="arcade window" /></div>
           <p>{selectedArcade.description}</p>
           <div className="info-window__button-area">
             <a href={"/arcade-info/" + selectedArcade.arcade_id}> Arcade link </a>
@@ -158,11 +158,6 @@ export class MapArea extends Component {
       // Browser doesn't support Geolocation
       alert("error");
     }
-
-    if ( this.state.selectedArcade ) {
-      const selectedArcade = this.state.selectedArcade;
-    }
-    const arcadeList = this.state.arcadeList;
     return (
       <div className="the-map" style={{height: this.props.mapHeight}}>
         <div className="herere">

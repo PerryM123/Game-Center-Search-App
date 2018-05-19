@@ -1,10 +1,6 @@
 import React, { Component } from 'react';
-import { Switch, Route } from 'react-router-dom'
 
 class Explanation extends Component {
-  constructor(props){
-    super(props);
-  }
   render() {
     return (
       <div className="contents contents--explanation contents--home-page-section">

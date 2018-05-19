@@ -1,8 +1,5 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import Swiper from 'react-id-swiper';
-import './../scss/swiper.scss'; // Double check to see if this is the correct way to use swiper' scss
-
 /*
 * React Question:
 * So in this project, to avoid overloading the render function,
@@ -56,7 +53,7 @@ class ArcadePage extends Component {
             <div>
               <p><b>arcade_id:</b> {arcadeData.arcade_id}</p>
               <p><b>description:</b> {arcadeData.description}</p>
-              <img style={{width: "100%"}} src={arcadeData.arcade_img_full} />
+              <img style={{width: "100%"}} src={arcadeData.arcade_img_full} alt="arcade data shown" />
             </div>
           )
         }) : null }

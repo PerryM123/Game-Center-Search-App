@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { Switch, Route } from 'react-router-dom'
-import SplashMenu from './SplashMenu';
 import FindMenu from './FindMenu';
 import LiveMap from './LiveMap';
 import HomePage from './HomePage';

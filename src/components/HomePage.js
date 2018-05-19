@@ -1,16 +1,19 @@
 import React, { Component } from 'react';
-import { Switch, Route } from 'react-router-dom'
 import SplashMenu from './SplashMenu';
 import Explanation from './Explanation';
 import SplashContents from './SplashContents';
+import FontAwesome from 'react-fontawesome';
 
 class HomePage extends Component {
-  constructor(props){
-    super(props);
-  }
   render() {
     return (
       <div>
+      Hmmmm
+      <FontAwesome
+  name='spinner'
+  size='2x'
+  spin
+/>welp
         <SplashMenu />
         <SplashContents />
         <Explanation />

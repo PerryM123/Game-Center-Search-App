@@ -3,6 +3,7 @@ import { Switch, Route } from 'react-router-dom'
 import SplashMenu from './SplashMenu';
 import FindMenu from './FindMenu';
 import LiveMap from './LiveMap';
+import HomePage from './HomePage';
 import AboutUs from './AboutUs';
 import Games from './Games';
 import ContactUs from './ContactUs';
@@ -53,7 +54,7 @@ class Main extends Component {
           ReactJS Advice:
           Always end url with slash '/' to make it like /index.html
         */}
-          <Route exact path='/' component={SplashMenu}/>
+          <Route exact path='/' component={HomePage}/>
           <Route path='/find-menu/' component={FindMenu}/>
           <Route path='/live-map/' component={LiveMap}/>
           <Route path='/search-game/' component={Games}/>

@@ -53,7 +53,7 @@ class SearchGame extends Component {
           (this.state.loading) ? <div className="loading_now"><img src={loading_logo} alt="loading-icon" /></div> : null
         }
         <h2>Search By Game</h2>
-        <ul className="loaded-games">
+        <ul className="contents--search-game__loaded-games">
           {this.state.gamesList}
         </ul>
         <button onClick={this.buttonHandler}>Load More</button>

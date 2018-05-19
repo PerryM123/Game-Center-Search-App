@@ -115,12 +115,19 @@ Contents
       border-bottom: 5px solid green;
       margin: 0 0 40px;
     }
+    &__arcade-title {
+      font-size: 24px;
+      text-align: center;
+      margin: 20px 0;
+    }
     &__cover-image {
       height: 200px;
-      width: 200px;
       display: block;
       background-size: contain;
       background-repeat: no-repeat;
+      background-position-x: center;
+      background-position-y: center;
+      margin: 0 0 20px;
     }
     &__carousel-container {
 
@@ -131,8 +138,13 @@ Contents
       }
     &__buttons-area {
       margin: 0 0 40px;
+      text-align: center;
+    }
+    &__description-area {
+      margin: 20px 0;
     }
     &__button {
+      display: inline-block;
       padding: 10px;
       border: 2px solid green;
       border-radius: 5px;
@@ -248,6 +260,9 @@ Contents
         width: 100%;
         margin: 0 0 30px;
         padding: 0;
+        &:last-child {
+          margin: 0;
+        }
       }
 			&:hover {
 				color: blue;
@@ -289,6 +304,9 @@ Contents
 	      width: 25%; // <--- 50% for mobile
 	      padding: 20px;
      		vertical-align: top;
+        @include breakpoints(tablet) {
+          width: 50%;
+        }
 	      &:hover {
 	      	img{
 	        	transform: scale(1.1);

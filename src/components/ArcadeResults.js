@@ -78,7 +78,7 @@ class ArcadeResults extends Component {
       this.state.arcadeList.map((arcadeItem,arcadeKey)=>{
         return (
           <div key={arcadeKey} className="contents--arcade-results__arcade-info">
-            <h2>{arcadeItem.arcade_name}</h2>
+            <h2 className="contents--arcade-results__arcade-title">{arcadeItem.arcade_name}</h2>
             <div className="contents--arcade-results__cover-image"
                  style={{
                   backgroundImage: "url(" + arcadeItem.cover_image + ")"}}
@@ -101,7 +101,7 @@ class ArcadeResults extends Component {
               </Swiper>
             </ul>
             <div>
-              <p>{arcadeItem.description}</p>
+              <p className="contents--arcade-results__description-area">{arcadeItem.description}</p>
               <div className="contents--arcade-results__buttons-area">
               {
               /*

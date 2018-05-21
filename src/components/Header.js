@@ -2,17 +2,44 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 
 class Header extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      showMenu: false
+    }
+    this.handleMenuClick = this.handleMenuClick.bind(this);
+    this.handleOverlayClick = this.handleOverlayClick.bind(this);
+  }
+  handleOverlayClick() {
+    this.setState({
+      showMenu: !this.state.showMenu
+    });
+  }
+  handleMenuClick() {
+    this.setState({
+      showMenu: !this.state.showMenu
+    });
+  }
   render() {
     return (
     <header className="contents contents--header">
-        <Link to="/" className="someLogo">Logo</Link>
-        <div className="mobile-only">button</div>
-        <ul>
-          <li><Link to="/search-game/">Search By Game</Link></li>
-          <li><Link to="/live-map/">Search By Map</Link></li>
-          <li><Link to="/region/">Search By Region</Link></li>
-        </ul>
-      </header>
+      <Link to="/" className="someLogo">Logo</Link>
+      <div className="mobile-menu" onClick={this.handleMenuClick}><p>MENU</p></div>
+      <div className={ this.state.showMenu ? 'overlay overlay--appear' : 'overlay' } onClick={this.handleOverlayClick}>
+        <div className={ this.state.showMenu ? 'testing testing--appear' : 'testing' }>
+          <ul className="list">
+            <li><Link to="/search-game/">Search By Game</Link></li>
+            <li><Link to="/live-map/">Search By Map</Link></li>
+            <li><Link to="/region/">Search By Region</Link></li>
+          </ul>
+          <div className="mobile-only">
+            <div className="close-button">
+              CLOSE ME
+            </div>
+          </div>    
+        </div>
+      </div>
+    </header>
     );
   }
 }

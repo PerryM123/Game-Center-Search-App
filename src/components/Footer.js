@@ -1,13 +1,15 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import headerLogo from './../images/header-icon.png'; // should this be in the public????
 
 class Footer extends Component {
   render() {
     return (
       <footer className="contents contents--footer">
-        <p>This is a footer</p>
-        <Link to="/">This is a footer LOGO</Link>
-      </footer>
+				<div className="contents--footer__someLogo">
+					<Link to="/"><img src={ headerLogo } /></Link>
+  			</div>
+  		</footer>
     );
   }
 }

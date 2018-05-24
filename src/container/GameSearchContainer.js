@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import SearchGame from './../components/SearchGame'
 import { connect } from "react-redux";
-import {increaseValue, decreaseValue} from './../actions/action';
+import { increaseValue, decreaseValue } from './../actions/action';
 
 
 // Map Redux state to component props
@@ -13,6 +13,9 @@ const mapStateToProps = (state) => {
 	}
 }
 
+// Not sure how mapDispatchToProps() works...
+//Maybe I don't need mapDispatchToProps() in this case
+
 // Map Redux actions to component props
 // const mapDispatchToProps = (dispatch) => {
 // 	return {
@@ -20,7 +23,6 @@ const mapStateToProps = (state) => {
 // 	}
 // }
 
-// Connecting container to the component
 const GameSearchContainer = connect(
 	mapStateToProps
 	//,mapDispatchToProps // why is this causing errors???

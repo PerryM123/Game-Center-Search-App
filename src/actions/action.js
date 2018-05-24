@@ -6,5 +6,7 @@ export const startLoading = () => ({
 
 export const finishLoading = ( loadedGames ) => ({
 	type: FINISH_LOADING,
-	payload: { loadedGames }
+	// Question!!!
+	// payload: { loadedGames } <--- using brackets here caused an error. What is the difference between brackets and no brackets
+	payload: loadedGames
 });

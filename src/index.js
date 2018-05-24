@@ -20,8 +20,6 @@ to see the state of the store
 */
 window.testStore = store;
 
-const LOAD_DATA = 'LOAD_DATA';
-
 ReactDOM.render(
 <Provider store={store}>
 <BrowserRouter>

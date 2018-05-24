@@ -6,7 +6,6 @@ import { startLoading, finishLoading } from './../actions/action';
 
 class SearchGame extends Component {
   componentWillMount() {
-    console.log("SearchGame: componentWillMount");
     let gameStuff;
     this.props.dispatch(startLoading());
     axios.get('/gameData.json')
@@ -30,14 +29,7 @@ class SearchGame extends Component {
     // load more items!!
   }
   render() {
-    console.log("+*+**+**+*+*+**+**+***++*+**+**+***+**+SearchGame: render ++*+**+**+***++**+**+***++*+**+**+***+");
     const { gamesList, loading, hasData } = this.props;
-    console.log("gamesList:");
-    console.log(gamesList);
-    console.log("loading:");
-    console.log(loading);
-    console.log("hasData:");
-    console.log(hasData);
     return (
       <div className="contents contents--search-game">
         {

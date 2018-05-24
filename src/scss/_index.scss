@@ -83,8 +83,10 @@ header {
   .someLogo {
     display: inline-block;
     border: 2px solid red;
-    padding: 10px 25px;
     border-radius: 5px;
+    img {
+      width: 170px;
+    }
   }
   .mobile-menu {
     display: none;
@@ -239,6 +241,12 @@ Contents
       .info-window {
         &__title {
           text-align: center;
+        }
+        &__description {
+          text-align: center;
+          @include breakpoints(tablet) {
+            width: 260px;
+          }
         }
         &__button-area {
           text-align: center;

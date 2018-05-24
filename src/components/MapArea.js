@@ -127,7 +127,7 @@ export class MapArea extends Component {
         <div className="info-window">
           <h2 className="info-window__title">{this.state.selectedPlace.name}</h2>
           <div className="info-window__thumbnail"><img src={selectedArcade.arcade_img_thumbnail} alt="arcade window" /></div>
-          <p>{selectedArcade.description}</p>
+          <p className="info-window__description">{selectedArcade.description}</p>
           <div className="info-window__button-area">
             <a href={"/arcade-info/" + selectedArcade.arcade_id}> Arcade link </a>
             <a href={selectedArcade.gmaps_link}>Google Maps Direct Link</a>

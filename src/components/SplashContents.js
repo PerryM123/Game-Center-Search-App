@@ -24,8 +24,9 @@ class SplashContents extends Component {
           */}
             <div className="contents--splash-contents__icon"></div>
             <h3 className="contents--splash-contents__details-title">Search for Arcade</h3>
-            <p className="contents--splash-contents__text-content">syigsyig syigsyig syigsyig syigsyig syigsyig syigsyig syigsyig syigsyig </p>
+            <p className="contents--splash-contents__text-content">syigsyig syigsyig syigsyig syigsyig syigsyig syigsyig syigsyig syigsyig </p>  
           </Link>
+          <Link className="contents--splash-contents__button" to='/live-map/'>Learn More</Link>
         </div>
         {/*Tool_1 END*/}
         {/*Tool_2*/}
@@ -35,6 +36,7 @@ class SplashContents extends Component {
             <h3 className="contents--splash-contents__details-title">Search for Game</h3>
             <p className="contents--splash-contents__text-content">syigsyig syigsyig syigsyig syigsyig syigsyig syigsyig syigsyig syigsyig </p>
           </Link>
+          <Link className="contents--splash-contents__button" to='/search-game/'>Learn More</Link>
         </div>
         {/*Tool_2 END*/}
         {/*Tool_3*/}
@@ -44,6 +46,7 @@ class SplashContents extends Component {
             <h3 className="contents--splash-contents__details-title">Search By Region</h3>
             <p className="contents--splash-contents__text-content">syigsyig syigsyig syigsyig syigsyig syigsyig syigsyig syigsyig syigsyig </p>
           </Link>
+          <Link className="contents--splash-contents__button" to='/region/'>Learn More</Link>
         </div>
         {/*Tool_3 END*/}
       </div>

@@ -376,6 +376,7 @@ Contents
   	}
   	&__tools-link {
   		text-decoration: none;
+      color: $main-color;
       &:visited {
         color: $main-color;
       }

@@ -4,6 +4,7 @@ import Main from './components/Main';
 import Footer from './components/Footer';
 import './scss/style.scss';
 import './font-awesome/css/font-awesome.min.css';
+import './font-icons/style.css';
 
 
 class App extends Component {

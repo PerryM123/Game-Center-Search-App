@@ -231,6 +231,7 @@ Contents
       text-align: center;
       padding: 20px 0;
       margin: 0;
+      font-size: 24px;
     }
     .the-map {
       position: relative;
@@ -289,11 +290,13 @@ Contents
       margin-top: 10px;
     }
     &__button {
-			border: 2px solid red;
-			padding: 10px;
-			display: inline-block;
-			border-radius: 15px;
-      margin-top: 20px;
+      border: 2px solid $main-color;
+      padding: 10px;
+      display: inline-block;
+      border-radius: 15px;
+      color: #FFF;
+      text-decoration: none;
+      background-color: $main-color;
     }
   }
   &--home-page-section {
@@ -329,6 +332,9 @@ Contents
   	}
   	&__tools-link {
   		text-decoration: none;
+      .icomoon {
+        font-size: 60px;
+      }
   	}
   	&__icon {
 			height: 90px;
@@ -347,10 +353,13 @@ Contents
   		margin: 5px 0;
   	}
     &__button {
-      border: 2px solid red;
+      border: 2px solid $main-color;
       padding: 10px;
       display: inline-block;
       border-radius: 15px;
+      color: #FFF;
+      text-decoration: none;
+      background-color: $main-color;
     }
   }
   &--explanation {

@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import FontAwesome from 'react-fontawesome';
-
+import IcoMoon from './IcoMoon';
 
 class SplashContents extends Component {
   render() {
@@ -24,10 +23,7 @@ class SplashContents extends Component {
           *
           *Search in index.scss for: contents--splash-contents__icon 
           */}
-            <FontAwesome
-              name='spinner'
-              size='5x'
-            />
+      <IcoMoon name='icon-location'/>
             
             <h3 className="contents--splash-contents__details-title">Search for Arcade</h3>
             <p className="contents--splash-contents__text-content">syigsyig syigsyig syigsyig syigsyig syigsyig syigsyig syigsyig syigsyig </p>  
@@ -38,10 +34,8 @@ class SplashContents extends Component {
         {/*Tool_2*/}
         <div className="contents--splash-contents__tools">
           <Link className="contents--splash-contents__tools-link" to='/search-game/'>
-            <FontAwesome
-              name='gamepad'
-              size='5x'
-            />
+            
+      <IcoMoon name='icon-gamepad'/>
             
             <h3 className="contents--splash-contents__details-title">Search for Game</h3>
             <p className="contents--splash-contents__text-content">syigsyig syigsyig syigsyig syigsyig syigsyig syigsyig syigsyig syigsyig </p>
@@ -52,10 +46,8 @@ class SplashContents extends Component {
         {/*Tool_3*/}
         <div className="contents--splash-contents__tools">
           <Link className="contents--splash-contents__tools-link" to='/region/'>
-            <FontAwesome
-              name='gamepad'
-              size='5x'
-            />
+            
+      <IcoMoon name='icon-tv'/>
             
             <h3 className="contents--splash-contents__details-title">Search By Region</h3>
             <p className="contents--splash-contents__text-content">syigsyig syigsyig syigsyig syigsyig syigsyig syigsyig syigsyig syigsyig </p>

@@ -3,7 +3,7 @@ import Header from './components/Header';
 import Main from './components/Main';
 import Footer from './components/Footer';
 import './scss/style.scss';
-import './font-awesome/css/font-awesome.css';
+import './font-awesome/css/font-awesome.min.css';
 
 
 class App extends Component {

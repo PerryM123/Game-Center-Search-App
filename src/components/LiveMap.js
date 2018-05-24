@@ -11,15 +11,23 @@ class LiveMap extends Component {
   }
   componentWillMount() {
     console.log("LiveMap: componentDidMount");
+
   }
   componentDidMount() {
-    this.setState({mapHeight: window.innerHeight - this.h2.clientHeight});
+    this.getMapHeight();
+    this.setState({mapHeight: this.getMapHeight()});
+  }
+
+  getMapHeight() {
+    const screenHeight = window.innerHeight;
+    const contentsHeight = document.body.scrollHeight;
+    return (screenHeight - contentsHeight);
   }
   render() {
     console.log("LiveMap: render");
     return (
-      <div ref={ div => { this.div = div; } } className="contents contents--live-map">
-        <h2 ref={ h2 => { this.h2 = h2; } } className="contents--live-map__main-title">Livemap</h2>
+      <div className="contents contents--live-map">
+        <h2 className="contents--live-map__main-title">Livemap</h2>
         <MapArea mapHeight={this.state.mapHeight + 'px'}/>
       </div>
     );

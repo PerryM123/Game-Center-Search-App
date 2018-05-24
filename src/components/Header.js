@@ -5,17 +5,20 @@ class Header extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      showMenu: false
+      showMenu: false,
+      breakpoint: 768 // there has to be a better way to handle this...
     }
     this.handleMenuClick = this.handleMenuClick.bind(this);
     this.handleOverlayClick = this.handleOverlayClick.bind(this);
   }
   handleOverlayClick() {
+    if (window.innerWidth > this.state.breakpoint) return;
     this.setState({
       showMenu: !this.state.showMenu
     });
   }
   handleMenuClick() {
+    if (window.innerWidth > this.state.breakpoint) return;
     this.setState({
       showMenu: !this.state.showMenu
     });

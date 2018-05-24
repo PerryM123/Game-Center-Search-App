@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom';
+import FontAwesome from 'react-fontawesome';
+
 
 class SplashContents extends Component {
   render() {
@@ -22,7 +24,11 @@ class SplashContents extends Component {
           *
           *Search in index.scss for: contents--splash-contents__icon 
           */}
-            <div className="contents--splash-contents__icon"></div>
+            <FontAwesome
+              name='spinner'
+              size='5x'
+            />
+            
             <h3 className="contents--splash-contents__details-title">Search for Arcade</h3>
             <p className="contents--splash-contents__text-content">syigsyig syigsyig syigsyig syigsyig syigsyig syigsyig syigsyig syigsyig </p>  
           </Link>
@@ -32,7 +38,11 @@ class SplashContents extends Component {
         {/*Tool_2*/}
         <div className="contents--splash-contents__tools">
           <Link className="contents--splash-contents__tools-link" to='/search-game/'>
-            <div className="contents--splash-contents__icon"></div>
+            <FontAwesome
+              name='gamepad'
+              size='5x'
+            />
+            
             <h3 className="contents--splash-contents__details-title">Search for Game</h3>
             <p className="contents--splash-contents__text-content">syigsyig syigsyig syigsyig syigsyig syigsyig syigsyig syigsyig syigsyig </p>
           </Link>
@@ -42,7 +52,11 @@ class SplashContents extends Component {
         {/*Tool_3*/}
         <div className="contents--splash-contents__tools">
           <Link className="contents--splash-contents__tools-link" to='/region/'>
-            <div className="contents--splash-contents__icon"></div>
+            <FontAwesome
+              name='gamepad'
+              size='5x'
+            />
+            
             <h3 className="contents--splash-contents__details-title">Search By Region</h3>
             <p className="contents--splash-contents__text-content">syigsyig syigsyig syigsyig syigsyig syigsyig syigsyig syigsyig syigsyig </p>
           </Link>

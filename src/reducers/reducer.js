@@ -20,15 +20,13 @@ const reducer = ( state = initialState, action ) => {
   	console.log(action);
     switch ( action.type ) {
         case START_LOADING:
-  return Object.assign({}, state, {
-
+  				return Object.assign({}, state, {
 						gamesList: "",
 						loading: true,
 						hasData: false
           });
         case FINISH_LOADING:
-  return Object.assign({}, state, {
-
+				  return Object.assign({}, state, {
 						gamesList: action.payload,
 						loading: false,
 						hasData: true

@@ -5,20 +5,20 @@ import {increaseValue, decreaseValue} from './../actions/action';
 
 
 // Map Redux state to component props
-const mapStateToProps = (state, ownProps) => {
+const mapStateToProps = (state) => {
 	return {
-		gamesList: "",
-		loading: true,
-    	hasData: false
+		gamesList: state.gamesList,
+		loading: state.loading,
+    	hasData: state.hasData
 	}
 }
 
 // Map Redux actions to component props
-const mapDispatchToProps = (dispatch) => {
-	return {
-		buttonHandler: () => dispatch 
-	}
-}
+// const mapDispatchToProps = (dispatch) => {
+// 	return {
+// 		buttonHandler: () => dispatch 
+// 	}
+// }
 
 // Connecting container to the component
 const GameSearchContainer = connect(

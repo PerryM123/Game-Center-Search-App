@@ -6,6 +6,7 @@ import { startLoading, finishLoading } from './../actions/action';
 
 class SearchGame extends Component {
   componentWillMount() {
+    console.log("SearchGame: componentWillMount");
     let gameStuff;
     this.props.dispatch(startLoading());
     axios.get('/gameData.json')

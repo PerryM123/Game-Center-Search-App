@@ -148,6 +148,25 @@ export class MapArea extends Component {
     const mapMarkers = this.addMarkers(google);
     const infoBoxes = this.addInfoWindows(google);
     if (navigator.geolocation) {
+
+      // Tried to use setInterval to have getCurrentPosition called every 5 seconds
+/*
+
+        setInterval(() => {
+          console.log("setInterval");
+          console.log("lat: " + position.coords.latitude);
+          console.log("long: " + position.coords.longitude);
+          console.log("==========");
+          this.setState({
+              currentLocation: {
+                lat: position.coords.latitude,
+                long: position.coords.longitude
+              }
+            });
+          }, 5000);
+*/
+
+
       navigator.geolocation.getCurrentPosition((position) => {
         this.setState({
           currentLocation: {

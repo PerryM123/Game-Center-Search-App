@@ -32,9 +32,9 @@ class Header extends Component {
       <div className={ this.state.showMenu ? 'overlay overlay--appear' : 'overlay' } onClick={this.handleOverlayClick}>
         <div className={ this.state.showMenu ? 'testing testing--appear' : 'testing' }>
           <ul className="list">
+            <li><Link to="/search-arcade/">Search By Arcade</Link></li>
             <li><Link to="/search-game/">Search By Game</Link></li>
             <li><Link to="/live-map/">Search By Map</Link></li>
-            <li><Link to="/region/">Search By Region</Link></li>
           </ul>
           <div className="mobile-only">
             <div className="close-button">

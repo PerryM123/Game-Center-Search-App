@@ -10,7 +10,7 @@ class SplashContents extends Component {
       * It seems if there are too much text in a title for tools, it will cause misalignment.
       * Should I create my own matchHeight function or use a library?
       */
-      <div className="contents contents--splash-contents contents--home-page-section">
+      <div id="splash-contents" className="contents contents--splash-contents contents--home-page-section">
         <h2 className="contents--home-page-section__section-title">Search Now!</h2>
         {/*Tool_1*/}
         <div className="contents--splash-contents__tools">

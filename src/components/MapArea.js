@@ -3,6 +3,7 @@ import { Map, InfoWindow, Marker, GoogleApiWrapper } from "google-maps-react";
 import axios from 'axios';
 import PropTypes from 'prop-types';
 import configFile from './gmaps_api_key/config.json';
+import genzaichiIcon from './../images/genzaichi-pin.png';
 
 export class MapArea extends Component {
   constructor(props) {
@@ -77,6 +78,7 @@ export class MapArea extends Component {
       <Marker
         onClick={this.onMarkerClick}
         icon={{
+          url: genzaichiIcon,
           anchor: new google.maps.Point(32, 32),
           scaledSize: new google.maps.Size(64, 64)
         }}

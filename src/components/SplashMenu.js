@@ -19,11 +19,13 @@ class SplashMenu extends Component {
   }
   findSectionPosition() {
     const searchNowElement = document.getElementById('splash-contents');
-    const rect = searchNowElement.getBoundingClientRect();
-    const sectionPos = rect.top + window.scrollY;
-    this.setState({
-      sectionPosition: sectionPos
-    });
+    if (searchNowElement) {
+      const rect = searchNowElement.getBoundingClientRect();
+      const sectionPos = rect.top + window.scrollY;
+      this.setState({
+        sectionPosition: sectionPos
+      });
+    }
   }
   buttonHandler() {
     window.scroll({top: this.state.sectionPosition, left: 0, behavior: 'smooth' });

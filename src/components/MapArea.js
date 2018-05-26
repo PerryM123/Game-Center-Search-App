@@ -9,6 +9,7 @@ export class MapArea extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      timer: "",
       showingInfoWindow: false,
       /*
       * React Questions
@@ -27,15 +28,40 @@ export class MapArea extends Component {
   }
   componentDidMount() {
     console.log("MapArea: componentDidMount");
+    this.getCurrentMapPosition();
+    const milliseconds = 15000;
     axios.get('/arcadeData.json')
      .then((results) => {
       this.setState({
         arcadeList: results.data.arcades
       });
     });
+    let count = 0; // debugging
+    this.state.timer = setInterval(() => {
+      this.getCurrentMapPosition();
+      console.log("count: " + count); // debugging
+      count++; // debugging
+    }, milliseconds); 
   }
   componentWillMount() {
     console.log("MapArea: componentWillMount");
+    clearInterval(this.state.timer);
+  }
+  getCurrentMapPosition() {
+    navigator.geolocation.getCurrentPosition((position) => {
+      console.log("setInterval");
+      console.log("================");
+      console.log("position.coords.latitude: " + position.coords.latitude);
+      console.log("position.coords.longitude: " + position.coords.longitude);
+      console.log("================");
+      
+      this.setState({
+        currentLocation: {
+          lat: position.coords.latitude,
+          long: position.coords.longitude
+        }
+      });
+    });
   }
   findSelectedArcade() {
     console.log("MapArea: findSelectedArcade()");
@@ -141,48 +167,14 @@ export class MapArea extends Component {
   }
   render() {
     console.log("MapArea: render()");
-    const google=window.google
+    const google = window.google;
     if (!this.props.google) {
       return <div>Loading...</div>;
     }
     const mapMarkers = this.addMarkers(google);
     const infoBoxes = this.addInfoWindows(google);
-    if (navigator.geolocation) {
-
-      // Tried to use setInterval to have getCurrentPosition called every 5 seconds
-/*
-
-        setInterval(() => {
-          console.log("setInterval");
-          console.log("lat: " + position.coords.latitude);
-          console.log("long: " + position.coords.longitude);
-          console.log("==========");
-          this.setState({
-              currentLocation: {
-                lat: position.coords.latitude,
-                long: position.coords.longitude
-              }
-            });
-          }, 5000);
-*/
-
-
-      navigator.geolocation.getCurrentPosition((position) => {
-        this.setState({
-          currentLocation: {
-            lat: position.coords.latitude,
-            long: position.coords.longitude
-          }
-        });
-      });
-    } else {
-      // Browser doesn't support Geolocation
-      alert("error");
-    }
     return (
       <div className="the-map" style={{height: this.props.mapHeight}}>
-        <div className="herere">
-        </div>
         <Map
           centerAroundCurrentLocation
           onClick={this.onMapClicked}
@@ -207,5 +199,5 @@ export default GoogleApiWrapper({
 * How can I put this in the top of the component?
 */
 MapArea.propTypes = {
-  mapHeight: PropTypes.number.isRequired
+  mapHeight: PropTypes.string.isRequired
 };

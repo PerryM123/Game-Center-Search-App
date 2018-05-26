@@ -16,8 +16,12 @@ class Arcade extends Component {
         * Mayb
         */}
 
-        {/*<Route exact path='/arcade-info/' component={Home}/>*/}
-          <Redirect exact from="/arcade-info/" to="/find-menu/" />
+        {/*list of all arcades*/}
+        <Route exact path='/arcade-info/' component={ArcadePage}/>
+
+        {/*<Redirect exact from="/arcade-info/" to="/find-menu/" />*/}
+
+        {/*List of specific Arcade page*/}
         <Route path='/arcade-info/:arcade_id' component={ArcadePage} />
       </Switch>
     );

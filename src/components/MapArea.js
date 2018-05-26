@@ -45,6 +45,9 @@ export class MapArea extends Component {
   }
   componentWillMount() {
     console.log("MapArea: componentWillMount");
+  }
+  componentWillUnmount() {
+    console.log("MapArea: componentWillUnmount");
     clearInterval(this.state.timer);
   }
   getCurrentMapPosition() {

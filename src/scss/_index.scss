@@ -173,7 +173,10 @@ header {
 /*-----------------
 Contents
 -----------------*/
-
+.purple-background {
+  background-color: #551a8b;
+  color: white;
+}
 .contents {
   max-width: 1050px;
   margin: 0 auto;
@@ -448,10 +451,7 @@ Contents
     }
   }
   &--explanation {
-    background-color: #551a8b;
-    color: white;
-    margin: 0;
-    max-width: 100%;
+    
   }
   &--search-game {
     border: 5px solid brown;

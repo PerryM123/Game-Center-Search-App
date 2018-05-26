@@ -7,26 +7,25 @@ class LiveMap extends Component {
     super(props);
     this.state = {
       mapHeight: "",
-      firstHeight: ""
+      contentsHeight: 0
     }
+    this.getMapHeight = this.getMapHeight.bind(this);
   }
   componentDidMount() {
-    window.addEventListener("load", () => {
-      this.setState({
-        firstHeight: document.body.scrollHeight
-      })
-      this.getMapHeight();
-    });
+    console.log("LiveMap: componentDidMount");
     window.addEventListener("resize", this.getMapHeight.bind(this));
-    }
+    this.setState({
+      contentsHeight: document.body.scrollHeight,
+      loadCount: 1
+    }, this.getMapHeight);
+  }
   componentWillUnmount() {
-    window.removeEventListener("load", this.getMapHeight.bind(this));
+    console.log("LiveMap: componentWillUnmount");
     window.removeEventListener("resize", this.getMapHeight.bind(this));
   }
   getMapHeight() {
     const screenHeight = window.innerHeight;
-    const contentsHeight = this.state.firstHeight;
-    const mapHeight = screenHeight - contentsHeight;
+    const mapHeight = screenHeight - this.state.contentsHeight;
     this.setState({
       mapHeight: mapHeight
     });

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import loading_logo from './../images/loading_icon.png';
-
+import SearchGameCover from './SearchGameCover';
 
 class SearchGame extends Component {
   constructor(props) {
@@ -48,15 +48,17 @@ class SearchGame extends Component {
   }
   render() {
     return (
-      <div className="contents contents--search-game">
-        {
-          (this.state.loading) ? <div className="loading_now"><img src={loading_logo} alt="loading-icon" /></div> : null
-        }
-        <h2>Search By Game</h2>
-        <ul className="contents--search-game__loaded-games">
-          {this.state.gamesList}
-        </ul>
-        <button onClick={this.buttonHandler}>Load More</button>
+      <div>
+        <SearchGameCover />
+        <div className="contents contents--search-game">
+          {
+            (this.state.loading) ? <div className="loading_now"><img src={loading_logo} alt="loading-icon" /></div> : null
+          }
+          <ul className="contents--search-game__loaded-games">
+            {this.state.gamesList}
+          </ul>
+          <button onClick={this.buttonHandler}>Load More</button>
+        </div>
       </div>
     );
   }

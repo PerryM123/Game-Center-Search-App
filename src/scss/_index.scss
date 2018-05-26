@@ -159,10 +159,8 @@ header {
           display: block;
           text-align: center;
         }
-        &:hover,
-        &:focus {
+        &:hover {
           &:before {
-          	color: red;
             visibility: visible;
             transform: scaleX(1);
           }

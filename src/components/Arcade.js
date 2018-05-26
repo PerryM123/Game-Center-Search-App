@@ -17,7 +17,7 @@ class Arcade extends Component {
         */}
 
         {/*list of all arcades*/}
-        <Route exact path='/arcade-info/' component={ArcadePage}/>
+        <Route exact path='/search-arcade/' component={ArcadePage}/>
 
         {/*<Redirect exact from="/arcade-info/" to="/find-menu/" />*/}
 

@@ -59,7 +59,7 @@ class Main extends Component {
           <Route path='/search-game/' component={Games}/>
           <Route path='/about-us/' component={AboutUs}/>
           <Route path='/contact-us/' component={ContactUs}/>
-          <Route path='/arcade-info/' component={Arcade}/>
+          <Route path='/search-arcade/' component={Arcade}/>
           <Route component={PageNotFound}/>
         </Switch>
       </div>

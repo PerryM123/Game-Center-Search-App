@@ -3,8 +3,6 @@ import axios from 'axios';
 import Swiper from 'react-id-swiper';
 import loading_logo from './../images/loading_icon.png';
 import './../scss/swiper.scss'; // Double check to see if this is the correct way to use swiper' scss
-import ArcadeRender from './ArcadeRender';
-import SearchArcadeCover from './SearchArcadeCover';
 
 /*
 * React Question:
@@ -22,42 +20,41 @@ import SearchArcadeCover from './SearchArcadeCover';
 * If it is ONLY logic, then it should be a function?
 */
 
-/*
-* Things to do:
-* Like Game Search, make a redux store for Arcade Search
-*/
+// need map or filtered list passed as props
 
-class ArcadePage extends Component {
+class ArcadeRender extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      arcadeData: ""
+    
     }
   }
-  componentDidMount() {
-    axios.get('/arcadeData.json')
-     .then((results) => {
-      if ( results.data.arcades ) {
-        const swiperParams = {
-          slidesPerView: 5,
-          spaceBetween: 30,
-          freeMode: true,
-          pagination: {
-            el: '.swiper-pagination',
-            clickable: true,
-          },
-          navigation: {
-            nextEl: '.swiper-button-next',
-            prevEl: '.swiper-button-prev'
-          },
-          breakpoints: {
-            480: {
-              slidesPerView: 3,
-              spaceBetween: 20
-            }
-          }
-        };
-        const arcadeRenderData = results.data.arcades.map((arcadeItem, arcadeKey) => {
+  arcadeRenderer() {
+    
+    // This all will be assumed to be done in the previous component
+    // and passed down to this component via props
+
+    /*const swiperParams = {
+      slidesPerView: 5,
+      spaceBetween: 30,
+      freeMode: true,
+      pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+      },
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev'
+      },
+      breakpoints: {
+        480: {
+          slidesPerView: 3,
+          spaceBetween: 20
+        }
+      }
+    };
+    return (
+      this.state.arcadeList.map((arcadeItem,arcadeKey)=>{
         return (
           <div key={arcadeKey} className="contents--arcade-results__arcade-info">
             <h2 className="contents--arcade-results__arcade-title">{arcadeItem.arcade_name}</h2>
@@ -85,32 +82,39 @@ class ArcadePage extends Component {
             <div>
               <p className="contents--arcade-results__description-area">{arcadeItem.description}</p>
               <div className="contents--arcade-results__buttons-area">
+              {
+              }
                 <a className="contents--arcade-results__button contents--arcade-results__button--google-maps" href={arcadeItem.gmaps_link}> Google Maps </a>
                 <a className="contents--arcade-results__button contents--arcade-results__button--read-more" href={"/arcade-info/" + arcadeItem.arcade_id}> Read More </a>
               </div>
             </div>
           </div>
         )
-      });
-        this.setState({
-          arcadeData: arcadeRenderData
-        });
-      }
-    });
+      })
+    );*/
   }
+
   render() {
-    console.log("this.state.arcadeList");
-    console.log(this.state.arcadeList);
+    // const ourGame = this.props.match.params.id; // game in parameter
+    // arrNAme.find(ourGame)
+
     return (
-      <div>
-        <SearchArcadeCover />
-        <div className="contents contents--arcade-page">
-          <h2>Arcade Page.js:</h2>
-          <ArcadeRender arcadeData={this.state.arcadeData} />
-        </div>
+      <div className="contents contents--arcade-results">
+        <h2>Arcade Render.js</h2>
+        {
+          /*
+          * React Question:
+          * What is the correct way of formating a Conditional (ternary) Operator??
+          *
+          * ANSWER: To improve readibility, it is recommended to make only a simple one line.
+          *         Separate functions. Don't to do everything in render()
+          */
+          (this.state.loading) ? <div className="loading_now"><img src={loading_logo} alt="loading-icon" /></div> : this.props.arcadeData
+        }
+        <p></p>
       </div>
     );
   }
 }
 
-export default ArcadePage;
+export default ArcadeRender;

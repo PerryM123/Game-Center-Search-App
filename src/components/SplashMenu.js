@@ -5,17 +5,27 @@ class SplashMenu extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      test: 0
+      sectionPosition: 0
     }
     this.buttonHandler = this.buttonHandler.bind(this);
   }
-  buttonHandler() {
-    const searchNowSection = document.getElementById('splash-contents');
-    const rect = searchNowSection.getBoundingClientRect();
-    window.scroll({top: rect.top, left: 0, behavior: 'smooth' });
+  componentDidMount() {
+    this.findSectionPosition();
+    window.addEventListener("resize", this.findSectionPosition.bind(this));
+  }
+  componentWillUnmount() {
+    window.removeEventListener("resize", this.findSectionPosition.bind(this));
+  }
+  findSectionPosition() {
+    const searchNowElement = document.getElementById('splash-contents');
+    const rect = searchNowElement.getBoundingClientRect();
+    const sectionPos = rect.top + window.scrollY;
     this.setState({
-      test: rect.top
+      sectionPosition: sectionPos
     });
+  }
+  buttonHandler() {
+    window.scroll({top: this.state.sectionPosition, left: 0, behavior: 'smooth' });
   }
   render() {
     return (

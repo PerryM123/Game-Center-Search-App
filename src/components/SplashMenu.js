@@ -10,10 +10,11 @@ class SplashMenu extends Component {
     this.buttonHandler = this.buttonHandler.bind(this);
   }
   componentDidMount() {
-    this.findSectionPosition();
+    window.addEventListener("load", this.findSectionPosition.bind(this));
     window.addEventListener("resize", this.findSectionPosition.bind(this));
   }
   componentWillUnmount() {
+    window.removeEventListener("load", this.findSectionPosition.bind(this));
     window.removeEventListener("resize", this.findSectionPosition.bind(this));
   }
   findSectionPosition() {

@@ -22,3 +22,6 @@ yarn-error.log*
 
 #ignore Google Maps API key
 /src/components/gmaps_api_key/config.json
+
+#ignore Google Maps API key
+/src/components/wordpress_api_url/config.json

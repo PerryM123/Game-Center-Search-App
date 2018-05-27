@@ -9,6 +9,7 @@ import ContactUs from './ContactUs';
 import Arcade from './Arcade';
 import PageNotFound from './PageNotFound';
 
+import ScrollToTop from './ScrollToTop';
 /*
 * React Question 1:
 * When should I use:
@@ -48,6 +49,7 @@ class Main extends Component {
         {/*<button id="hello" onClick={this.onClickHandler}>
           Press Me: <span className="what">{ this.state.counter }</span>
         </button>*/}
+          <ScrollToTop />
         <Switch>
         {/*
           ReactJS Advice:

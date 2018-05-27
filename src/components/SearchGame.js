@@ -3,59 +3,43 @@ import { Link } from 'react-router-dom';
 import axios from 'axios';
 import loading_logo from './../images/loading_icon.png';
 import SearchGameCover from './SearchGameCover';
+import { startLoading, finishLoading } from './../actions/action';
 
 class SearchGame extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      gamesList: "",
-      loading: true
-    }
-    this.buttonHandler = this.buttonHandler.bind(this);
-  }
   componentWillMount() {
-    console.log("componentWillMount()");
-    /*
-    * No relative path for json data
-    */
+    let gameStuff;
+    this.props.dispatch(startLoading());
     axios.get('/gameData.json')
-      .then((results) => {
-
-    console.log("componentWillMount() then");
-        const gamesList = results.data.games.map((data, num)=> {
-          const link = "/search-game/" + data.game_id;
-          this.setState({
-            loading: false
-          });
-          return (
-            <li key={num}>
-              <Link to={link}>
-                <img src={data.game_img_thumbnail} alt={data.game_id}/>
-                <p className="contents--search-game__game-title">{data.game_name}</p>
-              </Link>
-            </li>
-          );
-        });
-        this.setState({
-          gamesList: gamesList
-        });
-
-    console.log("componentWillMount() SETSTATE");
+    .then((results) => {
+      gameStuff = results.data.games.map((data, num)=> {
+      const link = "/search-game/" + data.game_id;
+      return (
+        <li key={num}>
+          <Link to={link}>
+            <img src={data.game_img_thumbnail} alt={data.game_id}/>
+            <p className="contents--search-game__game-title">{data.game_name}</p>
+          </Link>
+        </li>
+      );
       });
+    }).then(() => {
+      this.props.dispatch(finishLoading(gameStuff));
+    });
   }
   buttonHandler() {
     // load more items!!
   }
   render() {
+    const { gamesList, loading, hasData } = this.props;
     return (
       <div>
         <SearchGameCover />
         <div className="contents contents--search-game">
           {
-            (this.state.loading) ? <div className="loading_now"><img src={loading_logo} alt="loading-icon" /></div> : null
+            (loading) ? <div className="loading_now"><img src={loading_logo} alt="loading-icon" /></div> : null
           }
           <ul className="contents--search-game__loaded-games">
-            {this.state.gamesList}
+            {gamesList}
           </ul>
           <button onClick={this.buttonHandler}>Load More</button>
         </div>

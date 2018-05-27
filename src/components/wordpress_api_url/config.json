@@ -1,0 +1,4 @@
+{
+  "WORDPRESS_API_GAMES_URL" : "https://reducible-sum.000webhostapp.com/wp-json/wp/v2/games/",
+  "WORDPRESS_API_ARCADES_URL" : "https://reducible-sum.000webhostapp.com/wp-json/wp/v2/arcades/"
+}

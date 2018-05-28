@@ -49,7 +49,7 @@ class Main extends Component {
         {/*<button id="hello" onClick={this.onClickHandler}>
           Press Me: <span className="what">{ this.state.counter }</span>
         </button>*/}
-          <ScrollToTop />
+        <ScrollToTop />
         <Switch>
         {/*
           ReactJS Advice:

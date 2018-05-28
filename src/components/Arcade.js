@@ -22,7 +22,7 @@ class Arcade extends Component {
         {/*<Redirect exact from="/arcade-info/" to="/find-menu/" />*/}
 
         {/*List of specific Arcade page*/}
-        <Route path='/arcade-info/:arcade_id' component={ArcadePage} />
+        <Route path='/arcade-info/:arcade_id/' component={ArcadePage} />
       </Switch>
     );
   }

@@ -8,8 +8,8 @@ class Games extends Component {
   render() {
     return (
       <Switch>
-        <Route exact path='/search-game' component={GameSearchContainer}/>
-        <Route path='/search-game/:id' component={ArcadeResults} />
+        <Route exact path='/search-game/' component={GameSearchContainer}/>
+        <Route path='/search-game/:id/' component={ArcadeResults} />
       </Switch>
     );
   }

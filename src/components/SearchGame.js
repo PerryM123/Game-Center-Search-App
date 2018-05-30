@@ -14,14 +14,29 @@ class SearchGame extends Component {
   componentWillMount() {
     const games_url = wordpress_api.WORDPRESS_API_GAMES_URL;
     let gameStuff;
+    const gameListCache = localStorage.getItem('gamesList');
+
     this.props.dispatch(startLoading());
+
+    // Local storage isn't working
+    // Reference: https://stackoverflow.com/questions/44961688/sharing-redux-state-to-other-clients-doesnt-work-when-stringified
+    
+    // if (gameListCache) {
+    //   console.log("Cache happened");
+    //   console.log("gameListCache");
+    //   console.log(gameListCache);
+
+    //   console.log("json time");
+    //   console.log(JSON.parse(gameListCache));
+    //   this.props.dispatch(finishLoading(JSON.parse(gameListCache)));
+    //   return;
+    // }
     axios.get(games_url)
     .then((results) => {
       gameStuff = results.data.map((data, num)=> {
       const link = "/search-game/" + data.acf.game_id;
       const gamecover_img = data.acf.game_cover;
       let gamecover_thumbnail = gamecover_img.substring(0, gamecover_img.length - 4) + '-212x300.jpg';
-      debugger;
 
       return (
         <li key={num}>
@@ -33,14 +48,21 @@ class SearchGame extends Component {
       );
       });
     }).then(() => {
+      console.log("Hmmmm for gameStuff: ")
+
+      console.log(gameStuff)
       this.props.dispatch(finishLoading(gameStuff));
+      localStorage.setItem('gamesList', JSON.stringify(gameStuff));
     });
   }
   buttonHandler() {
     // load more items!!
   }
   render() {
-    const { gamesList, loading, hasData } = this.props;
+    let { gamesList, loading, hasData } = this.props;
+    if (!gamesList) {
+      gamesList = ""
+    }
     return (
       <div>
         <SearchGameCover />
@@ -49,7 +71,9 @@ class SearchGame extends Component {
             (loading) ? <div className="contents--search-game__loading_now"><img src={loading_logo} alt="loading-icon" /></div> : null
           }
           <ul className="contents--search-game__loaded-games">
-            {gamesList}
+            {
+              gamesList
+            }
           </ul>
           {/*<button onClick={this.buttonHandler}>Load More</button>*/}
         </div>

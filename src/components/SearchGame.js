@@ -9,7 +9,7 @@ import wordpress_api from './wordpress_api_url/config.json';
 class SearchGame extends Component {
   constructor(props) {
     super(props);
-    console.log('url: ' + wordpress_api.WORDPRESS_API_GAMES_URL);
+    // console.log('url: ' + wordpress_api.WORDPRESS_API_GAMES_URL);
   }
   componentWillMount() {
     const games_url = wordpress_api.WORDPRESS_API_GAMES_URL;
@@ -19,10 +19,14 @@ class SearchGame extends Component {
     .then((results) => {
       gameStuff = results.data.map((data, num)=> {
       const link = "/search-game/" + data.acf.game_id;
+      const gamecover_img = data.acf.game_cover;
+      let gamecover_thumbnail = gamecover_img.substring(0, gamecover_img.length - 4) + '-212x300.jpg';
+      debugger;
+
       return (
         <li key={num}>
           <Link to={link}>
-            <img src={data.acf.game_cover} alt={data.acf.game_id}/>
+            <img src={gamecover_thumbnail} alt={data.acf.game_id}/>
             <p className="contents--search-game__game-title">{data.title.rendered}</p>
           </Link>
         </li>

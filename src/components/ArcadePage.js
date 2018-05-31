@@ -95,8 +95,8 @@ class ArcadePage extends Component {
               <div>
                 <p className="contents--arcade-results__description-area">{arcadeItem.acf.description}</p>
                 <div className="contents--arcade-results__buttons-area">
-                  <a className="contents--arcade-results__button contents--arcade-results__button--google-maps" href={arcadeItem.acf.gmaps_link} target="_blank"> Google Maps </a>
                   <Link className="contents--arcade-results__button contents--arcade-results__button--read-more" to={"/search-arcade/" + arcadeItem.acf.arcade_id}> Read More </Link>
+                  <a className="contents--arcade-results__button contents--arcade-results__button--google-maps" href={arcadeItem.acf.gmaps_link} target="_blank"> Google Maps </a>
                 </div>
               </div>
             </div>

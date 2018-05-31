@@ -224,9 +224,9 @@ Contents
     border: 5px solid gray;
   }
   &--arcade-results {
-    border: 5px solid yellow;
+    // border: 5px solid yellow;
     &__arcade-info {
-      border-bottom: 5px solid green;
+      border-bottom: 3px solid #551a8b;
       margin: 0 0 40px;
     }
     &__arcade-title {
@@ -259,20 +259,25 @@ Contents
     }
     &__button {
       display: inline-block;
+      border: 2px solid #551a8b;
       padding: 10px;
-      border: 2px solid green;
-      border-radius: 5px;
-      margin: 0 10px;
+      display: inline-block;
+      border-radius: 15px;
+      color: #FFF;
+      text-decoration: none;
+      background-color: #551a8b;
       transition: .5s all;
+      margin: 0px 10px;
+      cursor: pointer;
       &:hover,
       &:focus {
         background-color: lightgray;
       }
       &--google-maps {
-        color: red;
+        // color: red;
       }
       &--read-more {
-        color: purple;
+        // color: purple;
       }
     }
   }

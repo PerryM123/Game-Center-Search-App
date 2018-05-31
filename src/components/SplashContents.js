@@ -23,22 +23,19 @@ class SplashContents extends Component {
           *
           *Search in index.scss for: contents--splash-contents__icon 
           */}
-      <IcoMoon name='icon-location'/>
-            
+            <IcoMoon name='icon-tv'/>            
             <h3 className="contents--splash-contents__details-title">Search for Arcade</h3>
-            <p className="contents--splash-contents__text-content">syigsyig syigsyig syigsyig syigsyig syigsyig syigsyig syigsyig syigsyig </p>  
+            <p className="contents--splash-contents__text-content">Search through a list of arcades all throughout Japan to find that works best for you.</p>
           </Link>
-          <Link className="contents--splash-contents__button" to='/live-map/'>Learn More</Link>
+          <Link className="contents--splash-contents__button" to='/search-arcade/'>Learn More</Link>
         </div>
         {/*Tool_1 END*/}
         {/*Tool_2*/}
         <div className="contents--splash-contents__tools">
           <Link className="contents--splash-contents__tools-link" to='/search-game/'>
-            
-      <IcoMoon name='icon-gamepad'/>
-            
+            <IcoMoon name='icon-gamepad'/>            
             <h3 className="contents--splash-contents__details-title">Search for Game</h3>
-            <p className="contents--splash-contents__text-content">syigsyig syigsyig syigsyig syigsyig syigsyig syigsyig syigsyig syigsyig </p>
+            <p className="contents--splash-contents__text-content">Search through a list of fighters to see which arcade has the strongest community for your desired game.</p>
           </Link>
           <Link className="contents--splash-contents__button" to='/search-game/'>Learn More</Link>
         </div>
@@ -46,13 +43,11 @@ class SplashContents extends Component {
         {/*Tool_3*/}
         <div className="contents--splash-contents__tools">
           <Link className="contents--splash-contents__tools-link" to='/region/'>
-            
-      <IcoMoon name='icon-tv'/>
-            
-            <h3 className="contents--splash-contents__details-title">Search By Region</h3>
-            <p className="contents--splash-contents__text-content">syigsyig syigsyig syigsyig syigsyig syigsyig syigsyig syigsyig syigsyig </p>
+            <IcoMoon name='icon-location'/>            
+            <h3 className="contents--splash-contents__details-title">Search Near You</h3>
+            <p className="contents--splash-contents__text-content">Search for arcades near you using your device's GPS location.</p>
           </Link>
-          <Link className="contents--splash-contents__button" to='/region/'>Learn More</Link>
+          <Link className="contents--splash-contents__button" to='/live-map/'>Learn More</Link>
         </div>
         {/*Tool_3 END*/}
       </div>

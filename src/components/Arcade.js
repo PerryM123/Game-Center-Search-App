@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Switch, Route, Redirect } from 'react-router-dom'
-import ArcadePage from './ArcadePage';
+import ArcadeSearchContainer from './../container/ArcadeSearchContainer';
+import ArcadeSingle from './../components/ArcadeSingle';
 
 class Arcade extends Component {
   render() {
@@ -17,12 +18,12 @@ class Arcade extends Component {
         */}
 
         {/*list of all arcades*/}
-        <Route exact path='/search-arcade/' component={ArcadePage}/>
+        <Route exact path='/search-arcade/' component={ArcadeSearchContainer}/>
 
         {/*<Redirect exact from="/arcade-info/" to="/find-menu/" />*/}
 
         {/*List of specific Arcade page*/}
-        <Route path='/arcade-info/:arcade_id/' component={ArcadePage} />
+        <Route path='/search-arcade/:arcade_id/' component={ArcadeSingle} />
       </Switch>
     );
   }

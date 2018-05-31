@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
-import loading_logo from './../images/loading_icon.png';
 import SearchGameCover from './SearchGameCover';
 import { gameStartLoading, gameFinishLoading } from './../actions/action';
 import wordpress_api from './wordpress_api_url/config.json';
+import loading_logo from './../images/loading_icon.png';
 
 class SearchGame extends Component {
   constructor(props) {
@@ -48,9 +48,6 @@ class SearchGame extends Component {
       );
       });
     }).then(() => {
-      console.log("Hmmmm for gameStuff: ")
-
-      console.log(gameStuff)
       this.props.dispatch(gameFinishLoading(gameStuff));
       localStorage.setItem('gamesList', JSON.stringify(gameStuff));
     });
@@ -69,7 +66,7 @@ class SearchGame extends Component {
         <div className="contents contents--search-game">
           {
             gamesLoading &&
-            <div className="contents--search-game__loading_now"><img src={loading_logo} alt="loading-icon" /></div>
+            <div className="loading_now"><img src={loading_logo} alt="loading-icon" /></div>
           }
           <ul className="contents--search-game__loaded-games">
             {

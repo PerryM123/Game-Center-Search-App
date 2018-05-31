@@ -20,7 +20,8 @@ const store = createStore(reducer);
 
 // Report changes in store's state
 store.subscribe(() => {
-	console.log("storeChanged: ", store.getState());
+	console.log("*****storeChanged: ", store.getState());
+	// console.log("%c storeChanged: ", store.getState(), 'font-weight: bold; display: block;');
 });
 
 ReactDOM.render(

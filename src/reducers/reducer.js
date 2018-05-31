@@ -54,15 +54,15 @@ export const arcadeListReducer = ( state = arcadesInitialState, action ) => {
 	    	}
 				return Object.assign({}, state, {
 					arcadesList: "",
-					arcadesloading: true,
-					arcadeshasData: false
+					arcadesLoading: true,
+					arcadesHasData: false
 	      });
 	    case ARCADE_FINISH_LOADING:
 	    console.log("case ARCADE_FINISH_LOADING");
 			  return Object.assign({}, state, {
 					arcadesList: action.payload,
-					arcadesloading: false,
-					arcadeshasData: true
+					arcadesLoading: false,
+					arcadesHasData: true
 	      });
 	    default:
 	    console.log("case default");

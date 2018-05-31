@@ -1,10 +1,14 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import axios from 'axios';
 import Swiper from 'react-id-swiper';
-import loading_logo from './../images/loading_icon.png';
-import './../scss/swiper.scss'; // Double check to see if this is the correct way to use swiper' scss
 import ArcadeRender from './ArcadeRender';
 import SearchArcadeCover from './SearchArcadeCover';
+import { arcadeStartLoading, arcadeFinishLoading } from './../actions/action';
+import wordpress_api from './wordpress_api_url/config.json';
+import loading_logo from './../images/loading_icon.png';
+import './../scss/swiper.scss'; // Double check to see if this is the correct way to use swiper' scss
+
 
 /*
 * React Question:
@@ -28,10 +32,20 @@ import SearchArcadeCover from './SearchArcadeCover';
 */
 
 class ArcadePage extends Component {
-  componentDidMount() {
-    axios.get('/arcadeData.json')
+  constructor(props) {
+    super(props);
+
+    this.getCarouselThumbnail = this.getCarouselThumbnail.bind(this);
+  }
+  componentWillMount() {
+    const arcades_url = wordpress_api.WORDPRESS_API_ARCADES_URL;
+    console.log("arcades_url: ", arcades_url)
+    let arcadeStuff;
+    this.props.dispatch(arcadeStartLoading());
+
+    axios.get(arcades_url)
      .then((results) => {
-      if ( results.data.arcades ) {
+      if ( results.data ) {
         const swiperParams = {
           slidesPerView: 5,
           spaceBetween: 30,
@@ -51,57 +65,64 @@ class ArcadePage extends Component {
             }
           }
         };
-        const arcadeRenderData = results.data.arcades.map((arcadeItem, arcadeKey) => {
-        return (
-          <div key={arcadeKey} className="contents--arcade-results__arcade-info">
-            <h2 className="contents--arcade-results__arcade-title">{arcadeItem.arcade_name}</h2>
-            <div className="contents--arcade-results__cover-image"
-                 style={{
-                  backgroundImage: "url(" + arcadeItem.cover_image + ")"}}
-            ></div>
-            <ul className="contents--arcade-results__carousel-container">
-              <Swiper {...swiperParams}>
-              {
-                arcadeItem.carousel_gallery &&
-                  arcadeItem.carousel_gallery.map((galleryItem, galleryKey) => {
-                    return (
-                      <li className="contents--arcade-results__carousel-images" key={galleryKey}
-                      style={{
-                        background: "url(" + galleryItem.gallery_image_link + ") no-repeat",
-                        backgroundSize: "cover",
-                        backgroundPosition: "center"
-                      }}></li>
-                    )
-                  })
-              }
-              </Swiper>
-            </ul>
-            <div>
-              <p className="contents--arcade-results__description-area">{arcadeItem.description}</p>
-              <div className="contents--arcade-results__buttons-area">
-                <a className="contents--arcade-results__button contents--arcade-results__button--google-maps" href={arcadeItem.gmaps_link}> Google Maps </a>
-                <a className="contents--arcade-results__button contents--arcade-results__button--read-more" href={"/arcade-info/" + arcadeItem.arcade_id}> Read More </a>
+
+        arcadeStuff = results.data.map((arcadeItem, arcadeKey) => {
+          return (
+            <div key={arcadeKey} className="contents--arcade-results__arcade-info">
+              <h2 className="contents--arcade-results__arcade-title">{arcadeItem.title.rendered}</h2>
+              <div className="contents--arcade-results__cover-image"
+                   style={{
+                    backgroundImage: "url(" + arcadeItem.acf.arcade_image.url + ")"}}
+              ></div>
+              <ul className="contents--arcade-results__carousel-container">
+                <Swiper {...swiperParams}>
+                {
+                  arcadeItem.acf.carousel &&
+                    arcadeItem.acf.carousel.map((galleryItem, galleryKey) => {
+                      const carousel_thumbnail = this.getCarouselThumbnail(galleryItem.carousel_image);
+                      return (
+                        <li className="contents--arcade-results__carousel-images" key={galleryKey}
+                        style={{
+                          background: "url(" + carousel_thumbnail + ") no-repeat",
+                          backgroundSize: "cover",
+                          backgroundPosition: "center"
+                        }}></li>
+                      )
+                    })
+                }
+                </Swiper>
+              </ul>
+              <div>
+                <p className="contents--arcade-results__description-area">{arcadeItem.acf.description}</p>
+                <div className="contents--arcade-results__buttons-area">
+                  <a className="contents--arcade-results__button contents--arcade-results__button--google-maps" href={arcadeItem.acf.gmaps_link} target="_blank"> Google Maps </a>
+                  <Link className="contents--arcade-results__button contents--arcade-results__button--read-more" to={"/search-arcade/" + arcadeItem.acf.arcade_id}> Read More </Link>
+                </div>
               </div>
             </div>
-          </div>
-        )
-      });
-        this.setState({
-          arcadeData: arcadeRenderData
+          );
         });
       }
-    });
+    }).then(() => {
+        this.props.dispatch(arcadeFinishLoading(arcadeStuff));
+      });
+  }
+  getCarouselThumbnail(carouselThumbnails) {
+    const thumbnail_size = "-178x100";
+    const imageFileType = carouselThumbnails.substring(carouselThumbnails.lastIndexOf("."), carouselThumbnails.length);
+    const imageLocation = carouselThumbnails.substring(0, carouselThumbnails.length - 4);
+    const finalAnswer = imageLocation  + thumbnail_size + imageFileType;
+
+    return finalAnswer;
   }
   render() {
-    console.log("this.state.arcadeList");
-    console.log(this.state.arcadeList);
+    let { arcadesList, arcadesLoading, arcadeHasData } = this.props;
+    console.log("arcadesList:")
+    console.log(arcadesList)
     return (
       <div>
         <SearchArcadeCover />
-        <div className="contents contents--arcade-page">
-          <h2>Arcade Page.js:</h2>
-          <ArcadeRender arcadeData={this.state.arcadeData} />
-        </div>
+        <ArcadeRender arcadeData={arcadesList} loading={arcadesLoading} />
       </div>
     );
   }

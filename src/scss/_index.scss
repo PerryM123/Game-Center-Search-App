@@ -402,6 +402,7 @@ Contents
 			width: 33%;
 			padding: 0 40px;
   		text-align: center;
+      vertical-align: top;
       @include breakpoints(tablet) {
         border-bottom: 1px dashed $main-color;
         width: 100%;

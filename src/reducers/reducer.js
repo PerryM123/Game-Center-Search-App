@@ -19,7 +19,8 @@ export const gameListReducer = ( state = gamesInitialState, action ) => {
     switch ( action.type ) {
 	    case GAME_START_LOADING:
 	    console.log("case GAME_START_LOADING");
-	    	if ( state.hasData ) {
+	    console.log("state.hasData: ", state.hasData)
+	    	if ( state.gamesHasData ) {
 	    		// data already loaded
 	    		return state;
 	    	}
@@ -47,7 +48,7 @@ export const arcadeListReducer = ( state = arcadesInitialState, action ) => {
     switch ( action.type ) {
 	    case ARCADE_START_LOADING:
 	    console.log("case ARCADE_START_LOADING");
-	    	if ( state.hasData ) {
+	    	if ( state.arcadesHasData ) {
 	    		// data already loaded
 	    		return state;
 	    	}

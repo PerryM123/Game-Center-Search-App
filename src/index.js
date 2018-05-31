@@ -1,24 +1,27 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux'
-import { createStore } from 'redux'
+import { createStore, combineReducers } from 'redux'
 import './index.css';
 import App from './App';
-import reducer from './reducers/reducer';
+import { gameListReducer, arcadeListReducer } from './reducers/reducer';
 import { BrowserRouter } from 'react-router-dom'
 import registerServiceWorker from './registerServiceWorker';
+
+// Combine reducers
+const reducer = combineReducers({
+    games: gameListReducer,
+    arcades: arcadeListReducer
+});
 
 // Create store
 const store = createStore(reducer);
 
-/*
-Test store
 
-With test store you can use:
-console.log(testStore.getState()) 
-to see the state of the store
-*/
-window.testStore = store;
+// Report changes in store's state
+store.subscribe(() => {
+	console.log("storeChanged: ", store.getState());
+});
 
 ReactDOM.render(
 <Provider store={store}>

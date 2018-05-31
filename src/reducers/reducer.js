@@ -1,35 +1,70 @@
 import axios from 'axios';
-import {START_LOADING, FINISH_LOADING} from './../constants/action-types';
+import {GAME_START_LOADING, GAME_FINISH_LOADING, ARCADE_START_LOADING, ARCADE_FINISH_LOADING} from './../constants/action-types';
 
-const initialState = {
+const gamesInitialState = {
 	gamesList: "",
-	loading: true,
-	hasData: false
+	gamesLoading: true,
+	gamesHasData: false
 }
 
-const reducer = ( state = initialState, action ) => {
-  	console.log("action was:");
+const arcadesInitialState = {
+	arcadesList: "",
+	arcadesLoading: true,
+	arcadesHasData: false
+}
+
+export const gameListReducer = ( state = gamesInitialState, action ) => {
+  	console.log("gameListReducer: action was:");
   	console.log(action);
     switch ( action.type ) {
-	    case START_LOADING:
+	    case GAME_START_LOADING:
+	    console.log("case GAME_START_LOADING");
 	    	if ( state.hasData ) {
 	    		// data already loaded
 	    		return state;
 	    	}
 				return Object.assign({}, state, {
 					gamesList: "",
-					loading: true,
-					hasData: false
+					gamesLoading: true,
+					gamesHasData: false
 	      });
-	    case FINISH_LOADING:
+	    case GAME_FINISH_LOADING:
+	    console.log("case GAME_FINISH_LOADING");
 			  return Object.assign({}, state, {
 					gamesList: action.payload,
-					loading: false,
-					hasData: true
+					gamesLoading: false,
+					gamesHasData: true
 	      });
 	    default:
+	    console.log("case default");
 	    	return state;
     }
 };
 
-export default reducer;
+export const arcadeListReducer = ( state = arcadesInitialState, action ) => {
+  	console.log("arcadeListReducer: action was:");
+  	console.log(action);
+    switch ( action.type ) {
+	    case ARCADE_START_LOADING:
+	    console.log("case ARCADE_START_LOADING");
+	    	if ( state.hasData ) {
+	    		// data already loaded
+	    		return state;
+	    	}
+				return Object.assign({}, state, {
+					arcadesList: "",
+					arcadesloading: true,
+					arcadeshasData: false
+	      });
+	    case ARCADE_FINISH_LOADING:
+	    console.log("case ARCADE_FINISH_LOADING");
+			  return Object.assign({}, state, {
+					arcadesList: action.payload,
+					arcadesloading: false,
+					arcadeshasData: true
+	      });
+	    default:
+	    console.log("case default");
+	    	return state;
+    }
+};

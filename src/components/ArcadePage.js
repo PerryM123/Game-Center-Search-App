@@ -28,12 +28,6 @@ import SearchArcadeCover from './SearchArcadeCover';
 */
 
 class ArcadePage extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      arcadeData: ""
-    }
-  }
   componentDidMount() {
     axios.get('/arcadeData.json')
      .then((results) => {

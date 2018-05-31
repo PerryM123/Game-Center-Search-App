@@ -6,9 +6,9 @@ import { connect } from "react-redux";
 // Map Redux state to component props
 const mapStateToProps = (state) => {
 	return {
-		gamesList: state.games.gamesList,
-		gamesLoading: state.games.gamesLoading,
-    	gamesHasData: state.games.gamesHasData
+		arcadeList: state.arcadeList,
+		loading: state.loading,
+    	hasData: state.hasData
 	}
 }
 
@@ -22,8 +22,8 @@ const mapStateToProps = (state) => {
 // 	}
 // }
 
-const GameSearchContainer = connect(
+const ArcadeSearchContainer = connect(
 	mapStateToProps
 	//,mapDispatchToProps // why is this causing errors???
 )(SearchGame);
-export default GameSearchContainer;
+export default ArcadeSearchContainer;

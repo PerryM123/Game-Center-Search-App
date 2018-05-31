@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import axios from 'axios';
 import loading_logo from './../images/loading_icon.png';
 import SearchGameCover from './SearchGameCover';
-import { startLoading, finishLoading } from './../actions/action';
+import { gameStartLoading, gameFinishLoading } from './../actions/action';
 import wordpress_api from './wordpress_api_url/config.json';
 
 class SearchGame extends Component {
@@ -16,7 +16,7 @@ class SearchGame extends Component {
     let gameStuff;
     const gameListCache = localStorage.getItem('gamesList');
 
-    this.props.dispatch(startLoading());
+    this.props.dispatch(gameStartLoading());
 
     // Local storage isn't working
     // Reference: https://stackoverflow.com/questions/44961688/sharing-redux-state-to-other-clients-doesnt-work-when-stringified
@@ -28,7 +28,7 @@ class SearchGame extends Component {
 
     //   console.log("json time");
     //   console.log(JSON.parse(gameListCache));
-    //   this.props.dispatch(finishLoading(JSON.parse(gameListCache)));
+    //   this.props.dispatch(gameFinishLoading(JSON.parse(gameListCache)));
     //   return;
     // }
     axios.get(games_url)
@@ -51,7 +51,7 @@ class SearchGame extends Component {
       console.log("Hmmmm for gameStuff: ")
 
       console.log(gameStuff)
-      this.props.dispatch(finishLoading(gameStuff));
+      this.props.dispatch(gameFinishLoading(gameStuff));
       localStorage.setItem('gamesList', JSON.stringify(gameStuff));
     });
   }
@@ -59,7 +59,7 @@ class SearchGame extends Component {
     // load more items!!
   }
   render() {
-    let { gamesList, loading, hasData } = this.props;
+    let { gamesList, gamesLoading, gamesHasData } = this.props;
     if (!gamesList) {
       gamesList = ""
     }
@@ -68,7 +68,8 @@ class SearchGame extends Component {
         <SearchGameCover />
         <div className="contents contents--search-game">
           {
-            (loading) ? <div className="contents--search-game__loading_now"><img src={loading_logo} alt="loading-icon" /></div> : null
+            gamesLoading &&
+            <div className="contents--search-game__loading_now"><img src={loading_logo} alt="loading-icon" /></div>
           }
           <ul className="contents--search-game__loaded-games">
             {

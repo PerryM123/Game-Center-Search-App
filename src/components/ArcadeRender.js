@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import Swiper from 'react-id-swiper';
 import loading_logo from './../images/loading_icon.png';
-import './../scss/swiper.scss'; // Double check to see if this is the correct way to use swiper' scss
+import './../scss/swiper.scss';
+import wordpress_api from './wordpress_api_url/config.json';
 
 /*
 * React Question:

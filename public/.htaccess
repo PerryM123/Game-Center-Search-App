@@ -1,3 +1,24 @@
+
+AuthType Basic
+AuthName "Input your ID and Password."
+AuthUserFile /data0/perry-frontend.design/public_html/.htpasswd
+require valid-user
+
+#porkbun config start
+
+RewriteEngine on
+
+RewriteCond %{HTTPS} !on
+RewriteCond %{THE_REQUEST} ^(GET|HEAD)\ ([^\ ]+)
+RewriteRule ^ https://%{HTTP_HOST}%2 [L,R=301]
+
+
+#porkbun config end
+
+
+
+
+
 <IfModule mod_rewrite.c>
 RewriteEngine On
 RewriteBase /

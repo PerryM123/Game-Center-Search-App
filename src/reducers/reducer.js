@@ -1,14 +1,23 @@
 import axios from 'axios';
-import {GAME_START_LOADING, GAME_FINISH_LOADING, ARCADE_START_LOADING, ARCADE_FINISH_LOADING} from './../constants/action-types';
+import {
+	GAME_START_LOADING, 
+	GAME_FINISH_LOADING, 
+	GAME_LOADING_ERROR,
+	ARCADE_START_LOADING, 
+	ARCADE_FINISH_LOADING,
+	ARCADE_LOADING_ERROR
+} from './../constants/action-types';
 
 const gamesInitialState = {
 	gamesList: "",
+	selectedGame: "",
 	gamesLoading: true,
 	gamesHasData: false
 }
 
 const arcadesInitialState = {
 	arcadesList: "",
+	selectedArcade: "",
 	arcadesLoading: true,
 	arcadesHasData: false
 }
@@ -35,6 +44,11 @@ export const gameListReducer = ( state = gamesInitialState, action ) => {
 					gamesList: action.payload,
 					gamesLoading: false,
 					gamesHasData: true
+	      });
+	    case GAME_LOADING_ERROR:
+	    console.log("case GAME_LOADING_ERROR");
+			  return Object.assign({}, state, {
+					gamesLoading: false,
 	      });
 	    default:
 	    console.log("case default");
@@ -63,6 +77,11 @@ export const arcadeListReducer = ( state = arcadesInitialState, action ) => {
 					arcadesList: action.payload,
 					arcadesLoading: false,
 					arcadesHasData: true
+	      });
+	    case ARCADE_LOADING_ERROR:
+	    console.log("case ARCADE_LOADING_ERROR");
+			  return Object.assign({}, state, {
+					arcadesLoading: false,
 	      });
 	    default:
 	    console.log("case default");

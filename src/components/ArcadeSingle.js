@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Swiper from 'react-id-swiper';
+import SingleArcadeCover from './SingleArcadeCover'
 import './../scss/swiper.scss'; // Double check to see if this is the correct way to use swiper' scss
 
 /*
@@ -29,10 +30,14 @@ class ArcadeSingle extends Component {
   }
   render() {
     let { arcadesList, arcadesLoading, arcadeHasData } = this.props;
+    const selectedArcade = this.props.match.params.arcade_id;
     console.log("arcadesList:")
     console.log(arcadesList)
     return (
       <div>
+        <SingleArcadeCover 
+          selectedArcade={ selectedArcade } 
+        />
         { this.props.match.params.arcade_id }
       </div>
     );

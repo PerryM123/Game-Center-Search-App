@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import loading_logo from './../images/loading_icon.png';
 
 class GameRenderer extends Component {
+	setGame() {}
   render() {
   	let gameStuff = "";
   	if (this.props.gameData) {

@@ -4,7 +4,12 @@ import axios from 'axios';
 import Swiper from 'react-id-swiper';
 import ArcadeRender from './ArcadeRender';
 import SearchArcadeCover from './SearchArcadeCover';
-import { arcadeStartLoading, arcadeFinishLoading, arcadeLoadingError } from './../actions/action';
+import { 
+  arcadeStartLoading, 
+  arcadeFinishLoading,
+  arcadeLoadingError,
+  selectArcade
+} from './../actions/action';
 import wordpress_api from './wordpress_api_url/config.json';
 import loading_logo from './../images/loading_icon.png';
 import './../scss/swiper.scss'; // Double check to see if this is the correct way to use swiper' scss
@@ -34,6 +39,7 @@ class ArcadePage extends Component {
   constructor(props) {
     super(props);
     this.getCarouselThumbnail = this.getCarouselThumbnail.bind(this);
+    this.setSelectedArcade = this.setSelectedArcade.bind(this);
   }
   componentWillMount() {
     const arcades_url = wordpress_api.WORDPRESS_API_ARCADES_URL;
@@ -57,6 +63,14 @@ class ArcadePage extends Component {
 
     return finalAnswer;
   }
+  setSelectedArcade(arcadeTitle, arcadeLink, arcadeDescription) {
+    const selectedArcade = {
+      arcadeTitle,
+      arcadeLink,
+      arcadeDescription
+    }
+    this.props.dispatch(selectArcade( selectedArcade ));
+  }
   render() {
     let { arcadesList, arcadesLoading, arcadeHasData } = this.props;
     console.log("arcadesList:")
@@ -64,7 +78,7 @@ class ArcadePage extends Component {
     return (
       <div>
         <SearchArcadeCover />
-        <ArcadeRender arcadeData={arcadesList} loading={arcadesLoading} />
+        <ArcadeRender arcadeData={arcadesList} loading={arcadesLoading} setSelectedArcade={this.setSelectedArcade} />
       </div>
     );
   }

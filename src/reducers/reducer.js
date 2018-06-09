@@ -5,7 +5,8 @@ import {
 	GAME_LOADING_ERROR,
 	ARCADE_START_LOADING, 
 	ARCADE_FINISH_LOADING,
-	ARCADE_LOADING_ERROR
+	ARCADE_LOADING_ERROR,
+	SELECT_ARCADE
 } from './../constants/action-types';
 
 const gamesInitialState = {
@@ -83,6 +84,11 @@ export const arcadeListReducer = ( state = arcadesInitialState, action ) => {
 			  return Object.assign({}, state, {
 					arcadesLoading: false,
 	      });
+	    case SELECT_ARCADE:
+			  return Object.assign({}, state, {
+					selectedArcade: action.payload
+	      });
+
 	    default:
 	    console.log("case default");
 	    	return state;

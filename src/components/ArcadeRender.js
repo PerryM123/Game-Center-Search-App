@@ -89,7 +89,7 @@ class ArcadeRender extends Component {
             <div>
               <p className="contents--arcade-results__description-area">{arcadeItem.acf.description}</p>
               <div className="contents--arcade-results__buttons-area">
-                <Link className="contents--arcade-results__button contents--arcade-results__button--read-more" to={"/search-arcade/" + arcadeItem.acf.arcade_id}> Read More </Link>
+                <Link className="contents--arcade-results__button contents--arcade-results__button--read-more" to={"/search-arcade/" + arcadeItem.acf.arcade_id} onClick={this.props.setSelectedArcade( arcadeItem.title.rendered, arcadeItem.acf.arcade_image.url, arcadeItem.acf.description )}> Read More </Link>
                 <a className="contents--arcade-results__button contents--arcade-results__button--google-maps" href={arcadeItem.acf.gmaps_link} target="_blank"> Google Maps </a>
               </div>
             </div>

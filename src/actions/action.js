@@ -4,7 +4,8 @@ import {
 	GAME_LOADING_ERROR,
 	ARCADE_START_LOADING, 
 	ARCADE_FINISH_LOADING,
-	ARCADE_LOADING_ERROR
+	ARCADE_LOADING_ERROR,
+	SELECT_ARCADE
 } from './../constants/action-types';
 
 export const gameStartLoading = () => ({
@@ -35,4 +36,9 @@ export const arcadeFinishLoading = ( loadedArcades ) => ({
 
 export const arcadeLoadingError = () => ({
 	type: ARCADE_LOADING_ERROR
+});
+
+export const selectArcade = ( selectedArcade ) => ({
+	type: SELECT_ARCADE,
+	payload: selectedArcade
 });

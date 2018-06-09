@@ -9,7 +9,6 @@ import wordpress_api from './wordpress_api_url/config.json';
 import loading_logo from './../images/loading_icon.png';
 import './../scss/swiper.scss'; // Double check to see if this is the correct way to use swiper' scss
 
-
 /*
 * React Question:
 * So in this project, to avoid overloading the render function,
@@ -44,12 +43,10 @@ class ArcadePage extends Component {
     axios.get(arcades_url)
     .then((arcadeData)=> {
       this.props.dispatch(arcadeStartLoading());
-      console.log("arcadeData: ++++====++++====");
-      console.log(arcadeData);
       this.props.dispatch(arcadeFinishLoading(arcadeData.data));
-    }).catch(error => {
+    }).catch((error) => {
       this.props.dispatch(arcadeLoadingError());
-      alert("Alert loading Data");
+      alert("Error loading Arcade Data");
     });
   }
   getCarouselThumbnail(carouselThumbnails) {

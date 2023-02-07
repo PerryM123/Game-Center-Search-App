@@ -1,5 +1,11 @@
 # Game-Center-Search-App
-I love fighting games. I need this app to help me and others find the best fighting game arcades to go to.
+I love fighting games. I created this app to help me and others find the best fighting game arcades to go to in Tokyo.
+
+## Page
+
+| PC  | SP  |
+|---|---|
+|  ![alt text](./sampleScreens/GameCenterSearchPC.png) | ![alt text](./sampleScreens/GameCenterSearchSP.png)  |
 
 
 ## Setup
